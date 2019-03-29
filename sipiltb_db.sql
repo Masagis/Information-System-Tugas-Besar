@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2019 at 04:39 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Mar 29, 2019 at 06:36 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_create`) VALUES
 (1, 'Agis Tri wahyuji', 'karmeo08@gmail.com', '4.jpg', '$2y$10$zeyDkPWqOe4KsSYLGlacWu0dH1ewxouOhUUy2m.gDAM5fqSYWViXi', 1, 1, 1552385297),
-(2, 'Rahmat Kurniawan', 'wahyujiat@gmail.com', 'default.jpg', '$2y$10$ep2aaqY1AqrtNSH.O9BDnulKEIvK0VPZIFpAo6zx1DHUYv3AAtcBa', 2, 1, 1552552313);
+(2, 'Rahmat Kurniawan', 'wahyujiat@gmail.com', 'default.jpg', '$2y$10$VsldHlNEWgd.TuEPvJuRTeAHvM6DKC0ULQbIP46926AS6Zt7v5XYa', 2, 1, 1552552313);
 
 -- --------------------------------------------------------
 
@@ -65,9 +65,13 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(2, 1, 2),
-(3, 2, 2),
-(4, 1, 3);
+(4, 1, 3),
+(5, 1, 4),
+(6, 2, 4),
+(7, 1, 5),
+(8, 2, 5),
+(9, 1, 2),
+(10, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,9 @@ CREATE TABLE `user_menu` (
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (1, 'Admin'),
 (2, 'User'),
-(3, 'Menu');
+(3, 'Menu'),
+(4, 'Mahasiswa'),
+(5, 'Informasi');
 
 -- --------------------------------------------------------
 
@@ -134,7 +140,12 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (4, 3, 'Menu Management', 'menu/index', 'fas fa-fw fa-folder', 1),
 (5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
 (6, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
-(7, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
+(7, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
+(8, 4, 'Kartu Rencana Studi', 'mahasiswa/daftar', 'fas fa-fw fa-file', 1),
+(9, 4, 'Kartu Hasil Studi', 'mahasiswa/hasil', 'fas fa-fw fa-file-alt', 1),
+(10, 4, 'Pendaftaran Asisten', 'mahasiswa/lamaran', 'fas fa-fw fa-file-upload', 1),
+(11, 5, 'Pembagian Kelompok', 'informasi/kelompok', 'fas fa-fw fa-book', 1),
+(12, 5, 'Pengumuman', 'informasi/pengumuman', 'fas fa-fw fa-bullhorn', 1);
 
 --
 -- Indexes for dumped tables
@@ -184,13 +195,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -202,7 +213,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
