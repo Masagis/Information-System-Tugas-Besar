@@ -33,15 +33,36 @@
                     </button>
                   </form>
                   <hr>
-                  <div class="text-center">
-                    <a class="small" href="<?= base_url('auth/forgot_password');?>">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="<?= base_url('auth/registration');?>">Create an Account!</a>
-                  </div>
+                    <div class="text-center">
+                      <a class="small" href="<?= base_url('auth/forgot_password');?>">Forgot Password?</a>
+                    </div>
+                    <div class="text-center">
+                      <a class="small" href="<?= base_url('auth/registration');?>">Create an Account!</a>
+                    </div>
                 </div>
               </div>
             </div>
+
+            <li class="list-group-item list-group-item-danger">
+              <font color="black">Peringatan: </font><font color="red"><b>JANGAN PERNAH</font><font color="black"></b> membagikan Email/Password Anda kepada orang lain</font></b></li>
+            <ul class="list-group">
+                <li class="list-group-item"><font color="blue">
+                    <strong>
+                      Berkaitan dengan Sistem Informasi Tugas Besar :
+                    </strong>
+                      <ul>
+                        <li>
+                          <a href="#"_blank">
+                            Cara Pendaftaran akun
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.itera.ac.id/kalender-akademik/" target="_blank">
+                            Kalender Akademik TA. 2018/2019
+                          </a>
+                        </li>
+              </ul>
+
           </div>
         </div>
 
