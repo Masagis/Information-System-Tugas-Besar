@@ -113,11 +113,10 @@ class auth extends CI_Controller {
             $user_token = [
                 'email' => $email,
                 'token' => $token,
-                'date_created' => time()
+                'date_create' => time()
             ];
 
             $this->db->insert('user',$data);
-
             $this->db->insert('user_token', $user_token);
 
             $this->_sendEmail($token, 'verify');
@@ -128,13 +127,12 @@ class auth extends CI_Controller {
         }
     }
 
-
     private function _sendEmail($token, $type){
         $config = [
             'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_host' => 'ssl://smtp.gmail.com',
             'smtp_user' => 'sipil.itera19@gmail.com',
-            'smtp_pass' => '1234567890',
+            'smtp_pass' => 'Informatika',
             'smtp_port' => 465,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
@@ -159,6 +157,7 @@ class auth extends CI_Controller {
         }
     }
 
+
     public function verify()
     {
         $email = $this->input->get('email');
@@ -170,7 +169,7 @@ class auth extends CI_Controller {
             $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
 
             if ($user_token) {
-                if (time() - $user_token['date_created'] < (60 * 60 * 24)) {
+                if (time() - $user_token['date_create'] < (60 * 60 * 24)) {
                     $this->db->set('is_active', 1);
                     $this->db->where('email', $email);
                     $this->db->update('user');
@@ -197,7 +196,6 @@ class auth extends CI_Controller {
     }
 
 
-    
     public function logout(){
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
