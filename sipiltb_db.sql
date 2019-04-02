@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2019 at 08:37 AM
+-- Generation Time: Apr 02, 2019 at 11:39 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -45,7 +45,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_create`) VALUES
 (1, 'Agis Tri wahyuji', 'karmeo08@gmail.com', '4.jpg', '$2y$10$zeyDkPWqOe4KsSYLGlacWu0dH1ewxouOhUUy2m.gDAM5fqSYWViXi', 1, 1, 1552385297),
-(2, 'Rahmat Kurniawan', 'wahyujiat@gmail.com', 'default.jpg', '$2y$10$VsldHlNEWgd.TuEPvJuRTeAHvM6DKC0ULQbIP46926AS6Zt7v5XYa', 2, 1, 1552552313);
+(2, 'Rahmat Kurniawan', 'wahyujiat@gmail.com', 'default.jpg', '$2y$10$GFncW32QQR0tDM9bIUkxU.V3Zxk7lqx8I3mKD//OaFPuCMa2HbsFy', 2, 1, 1552552313);
 
 -- --------------------------------------------------------
 
@@ -66,11 +66,8 @@ CREATE TABLE `user_access_menu` (
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (4, 1, 3),
-(5, 1, 4),
 (6, 2, 4),
-(7, 1, 5),
 (8, 2, 5),
-(9, 1, 2),
 (10, 2, 2);
 
 -- --------------------------------------------------------
@@ -161,13 +158,6 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_token`
---
-
-INSERT INTO `user_token` (`id`, `email`, `token`, `date_create`) VALUES
-(1, 'agis.14115041@student.itera.ac.id', 'GOk/ATbclTELNRLm7YPyYIES8KeBM9Cr/r/6k1UyLnY=', 1554013725);
-
---
 -- Indexes for dumped tables
 --
 
@@ -245,7 +235,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
