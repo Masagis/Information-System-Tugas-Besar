@@ -25,18 +25,29 @@
                     <input type="text" class="form-control" id="email" name="email">
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="course" class="col-sm-3 col-form-label">Choose Course</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="course" name="course">
+                    <select type="text" class="form-control" id="course" name="course">
+                        <option selected>Course</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label for="upload" class="col-sm-3 col-form-label">Upload Berkas</label>
-                <div class="col-sm-6">
-                    <input type="file" class="form-control" id="upload" name="upload">
+                <label for="upload" class="col-sm-3 col-form-label">Upload File</label>
+                <div class="col-sm-6 custom-file">
+                    <input type="file" class="custom-file-input" id="upload">
+                    <label class="custom-file-label" for="upload">Choose file</label>
                 </div>
+            </div>
+
+            <div class="col-sm-9 mt-5 text-right">
+                <button type="submit" class="btn btn-primary">Registrasi</button>
             </div>
         </div>
     </div>
