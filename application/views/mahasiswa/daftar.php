@@ -4,24 +4,36 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-    <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Semester
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">1</a>
-    <a class="dropdown-item" href="#">2</a>
-    <a class="dropdown-item" href="#">3</a>
-    <a class="dropdown-item" href="#">4</a>
-    <a class="dropdown-item" href="#">5</a>
-    <a class="dropdown-item" href="#">6</a>
-    <a class="dropdown-item" href="#">7</a>
-    <a class="dropdown-item" href="#">8</a>
-    
-  </div>
-</div>
 
-
+    <form action="" method="get" novalidate="novalidate">
+        	<div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-3 control-label">
+                        Tingkat Semester
+                    </div>
+                    <div class="col-md-5">
+						<select class="form-control input-sm" name="SemesterTingkat">
+							<option value="">- Pilih -</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+												</select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tampilkan</button>
+                    </div>
+                </div>
+            </div>
+		</form>
 
     </div>
     <!-- /.container-fluid -->
