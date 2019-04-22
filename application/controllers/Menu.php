@@ -63,4 +63,11 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
+    public function getubahmenu() {
+       echo json_encode($this->model('Menu_model')->getSubMenuById($_POST['id'])) ;
+    }
+    public function ubah() {
+        
+    }
+   
 }
