@@ -69,4 +69,12 @@ class admin extends CI_Controller {
         $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
         Access Change! </div> ');
     }
+    public function deleteSubMenu($id)
+    {
+        $this->db->delete('user_sub_menu', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Data Dihapus! </div>');
+        redirect('menu/submenu');
+    }
+     
 }
