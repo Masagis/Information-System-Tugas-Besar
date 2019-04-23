@@ -39,7 +39,7 @@
                 <td><?= $sm['icon'];?></td>
                 <td><?= $sm['is_active'];?></td>
                 <td>
-                    <a href=" " class="badge badge-success tampilModalUbah" data-toggle="modal" data-target="#newSubmenuModal" data-id="<?= $sm['id'];?>">Edit</a>
+                    <a href="<?= base_url(); ?>menu/ubahsubmenu/<?= $sm['id']; ?>" class="badge badge-success">Edit</a>
                     <a href="<?= base_url(); ?>admin/deleteSubMenu/<?= $sm['id']; ?>" class="badge badge-danger float-right">Delete</a>    
                     </td>
                 </tr>
