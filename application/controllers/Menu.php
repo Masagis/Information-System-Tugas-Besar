@@ -64,36 +64,37 @@ class Menu extends CI_Controller {
         }
     }
 
-    public function class(){
+    // public function class(){
         
-        $data['title']='Buka Kelas';
-        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    //     $data['title']='Buka Kelas';
+    //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
-        $data['kodem']= $this->db->get('user_daftar')->result_array();
+    //     $data['kodem']= $this->db->get('user_daftar')->result_array();
         
-        $this->form_validation->set_rules('kodemk','kodemk', 'required');
-        $this->form_validation->set_rules('namamk','namamk', 'required');
-        $this->form_validation->set_rules('sksmk','sksmk', 'required');
+    //     $this->form_validation->set_rules('kodemk','kodemk', 'required');
+    //     $this->form_validation->set_rules('namamk','namamk', 'required');
+    //     $this->form_validation->set_rules('sksmk','sksmk', 'required');
 
-        if ($this->form_validation->run()==false) {
-            $this->load->view('templates/header',$data);
-            $this->load->view('templates/sidebar',$data);
-            $this->load->view('templates/topbar',$data);
-            $this->load->view('menu/class',$data);
-            $this->load->view('templates/footer');
-        }else {
-            $data=[
-                'kodemk' => $this->input->post('kodemk'),
-                'namamk' => $this->input->post('namamk'),
-                'sksmk' => $this->input->post('sksmk'),
+    //     if ($this->form_validation->run()==false) {
+    //         $this->load->view('templates/header',$data);
+    //         $this->load->view('templates/sidebar',$data);
+    //         $this->load->view('templates/topbar',$data);
+    //         $this->load->view('menu/class',$data);
+    //         $this->load->view('templates/footer');
+    //     }else {
+    //         $data=[
+    //             'kodemk' => $this->input->post('kodemk'),
+    //             'namamk' => $this->input->post('namamk'),
+    //             'sksmk' => $this->input->post('sksmk'),
 
-            ];
-            $this->db->insert('user_daftar',$data);
-            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
-            New sub menu added! </div> ');
-            redirect('menu/class');
-        }
-    }
+    //         ];
+    //         $this->db->insert('user_daftar',$data);
+    //         $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+    //         New sub menu added! </div> ');
+    //         redirect('menu/class');
+    //     }
+    // }
+
     // public function deleteClass($id)
     // {
     //     $this->db->delete('user_daftar',['id'=>$id]);
