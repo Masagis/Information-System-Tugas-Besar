@@ -63,4 +63,78 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
+
+    public function class(){
+        
+        $data['title']='Buka Kelas';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['kodem']= $this->db->get('user_daftar')->result_array();
+        
+        $this->form_validation->set_rules('kodemk','kodemk', 'required');
+        $this->form_validation->set_rules('namamk','namamk', 'required');
+        $this->form_validation->set_rules('sksmk','sksmk', 'required');
+
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/class',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'kodemk' => $this->input->post('kodemk'),
+                'namamk' => $this->input->post('namamk'),
+                'sksmk' => $this->input->post('sksmk'),
+
+            ];
+            $this->db->insert('user_daftar',$data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            New sub menu added! </div> ');
+            redirect('menu/class');
+        }
+    }
+    public function deleteClass($id)
+    {
+        $this->db->delete('user_daftar',['id'=>$id]);
+        $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Data has been delete! </div> ');
+            redirect('menu/class');
+    }
+
+        // public function upload(){
+            
+        //     $data['title']='Upload Nilai';
+        //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        //     $this->load->view('templates/header',$data);
+        //     $this->load->view('templates/sidebar',$data);
+        //     $this->load->view('templates/topbar',$data);
+        //     $this->load->view('menu/upload',$data);
+        //     $this->load->view('templates/footer');
+        // }
+
+        // public function kelompok(){
+            
+        //     $data['title']='Pembagian Kelompok';
+        //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        //     $this->load->view('templates/header',$data);
+        //     $this->load->view('templates/sidebar',$data);
+        //     $this->load->view('templates/topbar',$data);
+        //     $this->load->view('menu/kelompok',$data);
+        //     $this->load->view('templates/footer');
+        // }
+
+        // public function asisten(){
+            
+        //     $data['title']='Data Pelamar Asisten';
+        //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        //     $this->load->view('templates/header',$data);
+        //     $this->load->view('templates/sidebar',$data);
+        //     $this->load->view('templates/topbar',$data);
+        //     $this->load->view('menu/asisten',$data);
+        //     $this->load->view('templates/footer');
+        // }
 }
