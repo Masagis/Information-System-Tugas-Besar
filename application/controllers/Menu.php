@@ -94,13 +94,13 @@ class Menu extends CI_Controller {
             redirect('menu/class');
         }
     }
-    public function deleteClass($id)
-    {
-        $this->db->delete('user_daftar',['id'=>$id]);
-        $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
-            Data has been delete! </div> ');
-            redirect('menu/class');
-    }
+    // public function deleteClass($id)
+    // {
+    //     $this->db->delete('user_daftar',['id'=>$id]);
+    //     $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+    //         Data has been delete! </div> ');
+    //         redirect('menu/class');
+    // }
 
         // public function upload(){
             
