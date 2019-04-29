@@ -25,18 +25,14 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="course" class="col-sm-3 col-form-label">Choose Course</label>
+                <label for="course" class="col-sm-3 col-form-label">Input Course</label>
                 <div class="col-sm-6">
-                    <select type="text" class="form-control" id="course" name="course">
-                        <option selected>Course</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                   <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
                 </div>
             </div>
+            
             <div class="form-group row">
                 <label for="upload" class="col-sm-3 col-form-label">Upload File</label>
                     <div class="col-sm-6">
