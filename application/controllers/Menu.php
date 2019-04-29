@@ -63,4 +63,11 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
+    public function hapus($id)
+    {
+        $this->db->delete('user_sub_menu', ['id' => $id]);
+        $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Data Dihapus! </div> ');
+        redirect('menu/submenu');
+    }
 }
