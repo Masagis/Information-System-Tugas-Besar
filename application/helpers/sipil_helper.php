@@ -18,7 +18,6 @@ function is_logged_in(){
         ]);
 
         if ($userAccess->row_array() < 1) {
-            # code...
             redirect('auth/blocked');
         }
     }
