@@ -40,7 +40,8 @@
                 <td><?= $sm['is_active'];?></td>
                 <td>
                     <a href="<?= base_url(); ?>menu/ubahsubmenu/<?= $sm['id']; ?>" class="badge badge-success">Edit</a>
-                    <a href="<?= base_url(); ?>admin/deleteSubMenu/<?= $sm['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">Delete</a>     
+                    <a href="<?= base_url(); ?>admin/deleteSubMenu/<?= $sm['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">Delete</a>
+
                     </td>
                 </tr>
                 <?php $i++; ?>
