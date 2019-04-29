@@ -9,4 +9,11 @@ class Menu_model extends CI_Model {
         " ;
         return $this->db->query($query)->result_array();
     }
+    public function ubahSubMenu() {
+        
+    }
+    public function getSubMenuById($id)
+    {
+        return $this->db->get_where('user_sub_menu', ['id' => $id])->row_array();
+    }
 }
