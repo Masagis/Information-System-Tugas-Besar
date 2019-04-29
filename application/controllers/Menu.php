@@ -65,6 +65,7 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
+
     public function ubahSubMenu($id) {
         $data['title']='Submenu Management';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
@@ -160,5 +161,5 @@ class Menu extends CI_Controller {
             New post added! </div> ');
             redirect('menu/post');
         }
-    }
+  }
 }
