@@ -76,5 +76,19 @@ class admin extends CI_Controller {
         Data Dihapus! </div>');
         redirect('menu/submenu');
     }
+    public function deleteMenu($id)
+    {
+        $this->db->delete('user_menu', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Data Dihapus! </div>');
+        redirect('menu/index');
+    }
+    public function deleteRole($id)
+    {
+        $this->db->delete('user_role', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Data Dihapus! </div>');
+        redirect('admin/role');
+    }
      
 }
