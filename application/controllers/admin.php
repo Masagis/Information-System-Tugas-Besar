@@ -69,4 +69,25 @@ class admin extends CI_Controller {
         $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
         Access Change! </div> ');
     }
+
+    public function deleteSubMenu($id){
+        $this->db->delete('user_sub_menu', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Sub menu successfully deleted! </div>');
+        redirect('menu/submenu');
+    }
+
+    public function deleteClass($id){
+        $this->db->delete('user_daftar', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        The class was successfully deleted! </div>');
+        redirect('menu/class');
+    }
+
+    public function deletePost($id_post){
+        $this->db->delete('user_post', ['id_post' => $id_post]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Post was successfully deleted! </div>');
+        redirect('menu/post');
+    }
 }

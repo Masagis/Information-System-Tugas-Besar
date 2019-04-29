@@ -13,6 +13,8 @@ class Menu extends CI_Controller {
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
         $data['menu']= $this->db->get('user_menu')->result_array();
+        $data['id']= $this->db->get('user_menu')->result_array();
+        $data['subMenuA11']= $this->db->get('user_sub_menu')->result_array();
 
         $this->form_validation->set_rules('menu','Menu', 'required');
 
@@ -63,79 +65,100 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
+    public function ubahSubMenu($id) {
+        $data['title']='Submenu Management';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Menu_model','menu');
 
-    // public function class(){
+        $data['subMenu']= $this->menu->getSubmenu();
+        $data['menu']= $this->db->get('user_menu')->result_array();
+        $data['subMenuAll']= $this->db->get_where('user_sub_menu', ['id' => $id])->row_array();
+
+        $this->form_validation->set_rules('title','Title', 'required');
+        $this->form_validation->set_rules('menu_id','Menu', 'required');
+        $this->form_validation->set_rules('url','URL', 'required');
+        $this->form_validation->set_rules('icon','icon', 'required');
         
-    //     $data['title']='Buka Kelas';
-    //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-
-    //     $data['kodem']= $this->db->get('user_daftar')->result_array();
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/ubahSubMenu',$data);
+            $this->load->view('templates/footer');
+        }else {
+            
+            $data=[
+                'title' => $this->input->post('title'),
+                'menu_id' => $this->input->post('menu_id'),
+                'url' => $this->input->post('url'),
+                'icon' => $this->input->post('icon'),
+                'is_active' => $this->input->post('is_active')
+            ];
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('user_sub_menu', $data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Sub Menu has been change! </div> ');
+            redirect('menu/submenu');
+        }
         
-    //     $this->form_validation->set_rules('kodemk','kodemk', 'required');
-    //     $this->form_validation->set_rules('namamk','namamk', 'required');
-    //     $this->form_validation->set_rules('sksmk','sksmk', 'required');
+    }
 
-    //     if ($this->form_validation->run()==false) {
-    //         $this->load->view('templates/header',$data);
-    //         $this->load->view('templates/sidebar',$data);
-    //         $this->load->view('templates/topbar',$data);
-    //         $this->load->view('menu/class',$data);
-    //         $this->load->view('templates/footer');
-    //     }else {
-    //         $data=[
-    //             'kodemk' => $this->input->post('kodemk'),
-    //             'namamk' => $this->input->post('namamk'),
-    //             'sksmk' => $this->input->post('sksmk'),
+    public function class(){
+        
+        $data['title']='Buka Kelas';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
-    //         ];
-    //         $this->db->insert('user_daftar',$data);
-    //         $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
-    //         New sub menu added! </div> ');
-    //         redirect('menu/class');
-    //     }
-    // }
+        $data['kodem']= $this->db->get('user_daftar')->result_array();
+        
+        $this->form_validation->set_rules('kodemk','kodemk', 'required');
+        $this->form_validation->set_rules('namamk','namamk', 'required');
+        $this->form_validation->set_rules('sksmk','sksmk', 'required');
 
-    // public function deleteClass($id)
-    // {
-    //     $this->db->delete('user_daftar',['id'=>$id]);
-    //     $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
-    //         Data has been delete! </div> ');
-    //         redirect('menu/class');
-    // }
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/class',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'kodemk' => $this->input->post('kodemk'),
+                'namamk' => $this->input->post('namamk'),
+                'sksmk' => $this->input->post('sksmk'),
 
-        // public function upload(){
-            
-        //     $data['title']='Upload Nilai';
-        //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+            ];
+            $this->db->insert('user_daftar',$data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            New class added! </div> ');
+            redirect('menu/class');
+        }
+    }
 
-        //     $this->load->view('templates/header',$data);
-        //     $this->load->view('templates/sidebar',$data);
-        //     $this->load->view('templates/topbar',$data);
-        //     $this->load->view('menu/upload',$data);
-        //     $this->load->view('templates/footer');
-        // }
+    public function Post(){
+        
+        $data['title']='Post Pengumuman';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
-        // public function kelompok(){
-            
-        //     $data['title']='Pembagian Kelompok';
-        //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        $data['post']= $this->db->get('user_post')->result_array();
+        
+        $this->form_validation->set_rules('title_post','title_post', 'required');
+        $this->form_validation->set_rules('isi_post','isi_post', 'required');
 
-        //     $this->load->view('templates/header',$data);
-        //     $this->load->view('templates/sidebar',$data);
-        //     $this->load->view('templates/topbar',$data);
-        //     $this->load->view('menu/kelompok',$data);
-        //     $this->load->view('templates/footer');
-        // }
-
-        // public function asisten(){
-            
-        //     $data['title']='Data Pelamar Asisten';
-        //     $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-
-        //     $this->load->view('templates/header',$data);
-        //     $this->load->view('templates/sidebar',$data);
-        //     $this->load->view('templates/topbar',$data);
-        //     $this->load->view('menu/asisten',$data);
-        //     $this->load->view('templates/footer');
-        // }
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/post',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'title_post' => $this->input->post('title_post'),
+                'isi_post' => $this->input->post('isi_post'),
+            ];
+            $this->db->insert('user_post',$data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            New post added! </div> ');
+            redirect('menu/post');
+        }
+    }
 }
