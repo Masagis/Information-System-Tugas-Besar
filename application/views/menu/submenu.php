@@ -14,7 +14,7 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <a href=" " class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubmenuModal">Add New Submenu</a>
+        <a href=" " class="btn btn-primary mb-3 tombolTambahData" data-toggle="modal" data-target="#newSubmenuModal">Add New Submenu</a>
 
         <table class="table table-hover">
             <thead>
@@ -39,8 +39,8 @@
                 <td><?= $sm['icon'];?></td>
                 <td><?= $sm['is_active'];?></td>
                 <td>
-                    <a href=" " class="badge badge-success">Edit</a>
-                    <a href=" " class="badge badge-danger">Delete</a>    
+                    <a href="<?= base_url(); ?>menu/ubahsubmenu/<?= $sm['id']; ?>" class="badge badge-success">Edit</a>
+                    <a href="<?= base_url(); ?>admin/deleteSubMenu/<?= $sm['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">Delete</a>     
                     </td>
                 </tr>
                 <?php $i++; ?>
@@ -53,7 +53,7 @@
 
     </div>
     <!-- /.container-fluid -->
-
+<!--  -->
 </div>
 <!-- End of Main Content -->
 
