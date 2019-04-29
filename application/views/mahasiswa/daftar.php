@@ -31,7 +31,7 @@
                 <i class="fas fa-bookmark" aria-hidden="true"<h6 class="box-title text-left"> Daftar Tugas Besar</h6> </i>
                 </div>
 
-                <table class="table table-hover">
+            <table class="table table-hover">
             <thead>
                 <tr>
                 <th scope="col">#</th>
