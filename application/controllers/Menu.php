@@ -31,6 +31,7 @@ class Menu extends CI_Controller {
             redirect('menu');
         }
     }
+    
     public function submenu(){
         
         $data['title']='Submenu Management';
@@ -105,11 +106,10 @@ class Menu extends CI_Controller {
     }
 
     public function class(){
-        
         $data['title']='Buka Kelas';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
-        $data['kodem']= $this->db->get('user_daftar')->result_array();
+        $data['kodem']= $this->db->get('user_matkul')->result_array();
         
         $this->form_validation->set_rules('kodemk','kodemk', 'required');
         $this->form_validation->set_rules('namamk','namamk', 'required');
@@ -128,7 +128,7 @@ class Menu extends CI_Controller {
                 'sksmk' => $this->input->post('sksmk'),
 
             ];
-            $this->db->insert('user_daftar',$data);
+            $this->db->insert('user_matkul',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
             New class added! </div> ');
             redirect('menu/class');
@@ -136,7 +136,6 @@ class Menu extends CI_Controller {
     }
 
     public function Post(){
-        
         $data['title']='Post Pengumuman';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
@@ -161,5 +160,18 @@ class Menu extends CI_Controller {
             New post added! </div> ');
             redirect('menu/post');
         }
-  }
+    }
+
+    public function Asisten(){
+        $data['title']='Data Pelamar Asisten';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['asisten']= $this->db->get('user_asisten')->result_array();
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/asisten',$data);
+            $this->load->view('templates/footer');
+    }
 }

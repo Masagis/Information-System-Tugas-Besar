@@ -34,7 +34,6 @@ class User extends CI_Controller {
             $this->load->view('user/edit',$data);
             $this->load->view('templates/footer');
         }else{
-
             $name =$this->input->post('name');
             $email =$this->input->post('email');
             
@@ -55,7 +54,7 @@ class User extends CI_Controller {
                     }
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('image', $new_image);
-                } else {
+                }else{
                     echo $this->upload->dispay_errors();
                 }
             }
