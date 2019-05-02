@@ -18,7 +18,6 @@
                 <th scope="col">Course 2</th>
                 <th scope="col">Course 3</th>
                 <th scope="col">Filename</th>
-                <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,8 +32,8 @@
                 <td><?= $as['matkul2'];?></td>
                 <td><?= $as['filename'];?></td>
                 <td>
-                    <a href="" class="badge badge-success">Edit</a>
-                    <a href="" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">Delete</a>
+                    <!-- <a href="" class="badge badge-success">Edit</a>
+                    <a href="" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">Delete</a> -->
                     </td>
                 </tr>
                 <?php $i++; ?>

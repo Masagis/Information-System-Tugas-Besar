@@ -109,7 +109,7 @@ class Menu extends CI_Controller {
         $data['title']='Buka Kelas';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
-        $data['kodem']= $this->db->get('user_daftar')->result_array();
+        $data['kodem']= $this->db->get('user_matkul')->result_array();
         
         $this->form_validation->set_rules('kodemk','kodemk', 'required');
         $this->form_validation->set_rules('namamk','namamk', 'required');
@@ -128,7 +128,7 @@ class Menu extends CI_Controller {
                 'sksmk' => $this->input->post('sksmk'),
 
             ];
-            $this->db->insert('user_daftar',$data);
+            $this->db->insert('user_matkul',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
             New class added! </div> ');
             redirect('menu/class');
