@@ -162,4 +162,17 @@ class Menu extends CI_Controller {
             redirect('menu/post');
         }
   }
+
+    public function kelompok(){
+        
+        $data['title']='Pembagian anggota kelompok';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('menu/kelompok',$data);
+        $this->load->view('templates/footer');
+    
+    }
 }

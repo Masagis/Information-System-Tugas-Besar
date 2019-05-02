@@ -1,0 +1,16 @@
+Catatan TUBES
+
+-> Buka kelas
+    tabel user_daftar
+
+-> Daftar tubes
+    user_matkul = nama, kelas, matkul - kode mk, add data
+
+-> Ambil data ke excel
+    export user_matkul 
+
+    menampilkan jumlah matkul yang tersedia di bawah
+    kemudian import hasil sesuai matkul di sampingnya dengan penamaan file namaMK
+
+-> kelompok
+    melihat hasil import sesuai dengan matkul
