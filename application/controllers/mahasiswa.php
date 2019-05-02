@@ -24,9 +24,10 @@ class mahasiswa extends CI_Controller {
             $this->load->view('mahasiswa/daftar',$data);
             $this->load->view('templates/footer');
         }else {
-            $data=[
-                'kodem'=> $this->input->get('user_daftar')
-            ];
+            $data=array(
+                'kodemk'=> $this->input->post('kodemk'),
+                'namamk'=> $this->input->post('namamk')
+            );
             $this->db->insert('user_matkul',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
             New data added! </div> ');
@@ -77,4 +78,17 @@ class mahasiswa extends CI_Controller {
                 }
             }
         }
-}
+
+    public function Hasil(){
+        
+        $data['title']='Unduh Kartu Kelulusan';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar',$data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('mahasiswa/hasil',$data);
+        $this->load->view('templates/footer');
+                
+        }
+    }
