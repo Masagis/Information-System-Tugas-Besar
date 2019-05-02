@@ -31,6 +31,7 @@ class Menu extends CI_Controller {
             redirect('menu');
         }
     }
+    
     public function submenu(){
         
         $data['title']='Submenu Management';
@@ -159,5 +160,18 @@ class Menu extends CI_Controller {
             New post added! </div> ');
             redirect('menu/post');
         }
+    }
+
+    public function Asisten(){
+        $data['title']='Data Pelamar Asisten';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['asisten']= $this->db->get('user_asisten')->result_array();
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/asisten',$data);
+            $this->load->view('templates/footer');
     }
 }
