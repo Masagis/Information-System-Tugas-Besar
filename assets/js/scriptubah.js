@@ -1,16 +1,17 @@
-$(function() {
 
-	$('.tombolTambahData').on('click', function(){
+$(function () {
 
-		$('#newSubmenuModalLabel').html('Tambah Sub Menu')
-		$('.modal-footer button[type=submit]').html('Tambah Data')
+	$('.tombolTambahData').on('click', function () {
+
+		$('#newSubmenuModalLabel').html('Add SubMenu')
+		$('.modal-footer button[type=submit]').html('Add Data')
 
 	});
 
-	$('.tampilModalUbah').on('click', function(){
+	$('.tampilModalUbah').on('click', function () {
 
-		$('#newSubmenuModalLabel').html('Ubah Sub Menu')
-		$('.modal-footer button[type=submit]').html('Ubah Data')
+		$('#newSubmenuModalLabel').html('Edit SubMenu')
+		$('.modal-footer button[type=submit]').html('Edit Data')
 		$('.modal-body form').attr('action', "<?= base_url('menu/ubah'); ?>")
 
 		const id = $(this).data('id');
@@ -18,10 +19,13 @@ $(function() {
 		$.ajax({
 
 			url: "<?= base_url('menu/getubahmenu'); ?>",
-			data: {id : id},
+
+			data: {
+				id: id
+			},
 			method: 'post',
 			dataType: 'json',
-			success: function(data) {
+			success: function (data) {
 				$('#title').val(data.title);
 				$('#id').val(data.id);
 			}
@@ -30,5 +34,4 @@ $(function() {
 		});
 
 	});
-
 });

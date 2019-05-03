@@ -5,8 +5,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    Form Ubah Sub Menu
+                    Update Sub Menu
                 </div>
+                    
                 
 
                 <div class="card-body">

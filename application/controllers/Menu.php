@@ -14,8 +14,8 @@ class Menu extends CI_Controller {
 
         $data['menu']= $this->db->get('user_menu')->result_array();
         $data['id']= $this->db->get('user_menu')->result_array();
-        $data['subMenuAll']= $this->db->get('user_sub_menu')->result_array();
 
+        $data['subMenuA11']= $this->db->get('user_sub_menu')->result_array();
         $this->form_validation->set_rules('menu','Menu', 'required');
 
         if ($this->form_validation->run()==false) {
@@ -31,6 +31,7 @@ class Menu extends CI_Controller {
             redirect('menu');
         }
     }
+    
     public function submenu(){
         
         $data['title']='Submenu Management';
@@ -66,7 +67,7 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
-    
+
     public function ubahSubMenu($id) {
         $data['title']='Submenu Management';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
@@ -104,5 +105,74 @@ class Menu extends CI_Controller {
         }
         
     }
-   
+
+    public function class(){
+        $data['title']='Buka Kelas';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['kodem']= $this->db->get('user_matkul')->result_array();
+        
+        $this->form_validation->set_rules('kodemk','KodeMK', 'required');
+        $this->form_validation->set_rules('namamk','NamaMK', 'required');
+        $this->form_validation->set_rules('sksmk','SksMK', 'required');
+
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/class',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'kodemk' => $this->input->post('kodemk'),
+                'namamk' => $this->input->post('namamk'),
+                'sksmk' => $this->input->post('sksmk'),
+
+            ];
+            $this->db->insert('user_matkul',$data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            New class added! </div> ');
+            redirect('menu/class');
+        }
+    }
+
+    public function Post(){
+        $data['title']='Post Pengumuman';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['post']= $this->db->get('user_post')->result_array();
+        
+        $this->form_validation->set_rules('title_post','title_post', 'required');
+        $this->form_validation->set_rules('isi_post','isi_post', 'required');
+
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/post',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'title_post' => $this->input->post('title_post'),
+                'isi_post' => $this->input->post('isi_post'),
+            ];
+            $this->db->insert('user_post',$data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            New post added! </div> ');
+            redirect('menu/post');
+        }
+    }
+
+    public function Asisten(){
+        $data['title']='Data Pelamar Asisten';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['asisten']= $this->db->get('user_asisten')->result_array();
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/asisten',$data);
+            $this->load->view('templates/footer');
+    }
 }
