@@ -174,4 +174,16 @@ class Menu extends CI_Controller {
             $this->load->view('menu/asisten',$data);
             $this->load->view('templates/footer');
     }
+
+    public function Kelompok(){
+        $data['title']='Pembagian anggota Kelompok';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        $data['kelompok']= $this->db->get('user_kelompok')->result_array(); 
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/kelompok',$data);
+            $this->load->view('templates/footer');
+    }
 }
