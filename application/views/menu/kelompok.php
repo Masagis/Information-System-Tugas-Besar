@@ -4,7 +4,8 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-    <a href="<?php echo base_url("Fungsi/export"); ?>">Export ke Excel</a><br><br>
+    <i class="fas fa-file-export"></i> <a href="<?php echo base_url("Fungsi/export"); ?>">Export data to Excel</a><br><br>
+
 
     
     </div>
