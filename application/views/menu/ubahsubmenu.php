@@ -8,7 +8,6 @@
                     Update Sub Menu
                 </div>
 
-
                 <div class="card-body">
                     <form action="" method="post">
                         <input type="hidden" name="id" value="<?= $subMenuAll['id']; ?>">
@@ -40,10 +39,7 @@
                         <button type="submit" name="ubah" class="btn btn-primary float-right">Edit Data</button>
                     </form>
                 </div>
-
             </div>
-
-
         </div>
     </div>
     

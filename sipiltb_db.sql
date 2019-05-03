@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Waktu pembuatan: 02 Bulan Mei 2019 pada 17.49
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
+=======
+-- Generation Time: May 02, 2019 at 06:20 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
+>>>>>>> master
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -70,6 +76,68 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (8, 2, 5),
 (11, 2, 2),
 (13, 1, 2);
+<<<<<<< HEAD
+=======
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_asisten`
+--
+
+CREATE TABLE `user_asisten` (
+  `id` int(11) NOT NULL,
+  `nim` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `matkul` varchar(128) NOT NULL,
+  `matkul1` varchar(128) NOT NULL,
+  `matkul2` varchar(128) NOT NULL,
+  `filename` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_asisten`
+--
+
+INSERT INTO `user_asisten` (`id`, `nim`, `name`, `matkul`, `matkul1`, `matkul2`, `filename`) VALUES
+(1, 14115041, 'Rahmat Kurniawan', 'sistem informasi', 'pengembangan aplikasi mobile', '', 'data_analisis_dg_tablue.zip'),
+(2, 14155065, 'Rahmat Kurniawan', 'sistem ', 'ppl', '', 'magang-source_code_id.zip');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_daftar`
+--
+
+CREATE TABLE `user_daftar` (
+  `id` int(11) NOT NULL,
+  `kodemk` varchar(128) NOT NULL,
+  `namamk` varchar(128) NOT NULL,
+  `sksmk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_matkul`
+--
+
+CREATE TABLE `user_matkul` (
+  `id` int(11) NOT NULL,
+  `kodemk` varchar(128) NOT NULL,
+  `namamk` varchar(128) NOT NULL,
+  `sksmk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_matkul`
+--
+
+INSERT INTO `user_matkul` (`id`, `kodemk`, `namamk`, `sksmk`) VALUES
+(1, 'IF4567', 'Sistem Operasi', 3),
+(2, 'IF2412', 'Sistem Informmasi', 2),
+(3, 'IF3412', 'Data Mining', 3);
+>>>>>>> master
 
 -- --------------------------------------------------------
 
@@ -130,7 +198,11 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Struktur dari tabel `user_post`
+=======
+-- Table structure for table `user_post`
+>>>>>>> master
 --
 
 CREATE TABLE `user_post` (
@@ -140,7 +212,11 @@ CREATE TABLE `user_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+<<<<<<< HEAD
 -- Dumping data untuk tabel `user_post`
+=======
+-- Dumping data for table `user_post`
+>>>>>>> master
 --
 
 INSERT INTO `user_post` (`id_post`, `title_post`, `isi_post`) VALUES
@@ -153,7 +229,11 @@ INSERT INTO `user_post` (`id_post`, `title_post`, `isi_post`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Struktur dari tabel `user_role`
+=======
+-- Table structure for table `user_role`
+>>>>>>> master
 --
 
 CREATE TABLE `user_role` (
@@ -196,6 +276,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
 (6, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
 (7, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
+<<<<<<< HEAD
 (8, 4, 'Kartu Hasil Studi', 'mahasiswa/hasil', 'fas fa-fw fa-file-alt', 1),
 (9, 4, 'Pendaftaran Tugas Besar', 'mahasiswa', 'fas fa-fw fa-file', 1),
 (10, 4, 'Pendaftaran Asisten', 'mahasiswa/lamaran', 'fas fa-fw fa-file-upload', 1),
@@ -206,6 +287,19 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (15, 3, 'Pembagian Kelompok', 'menu/kelompok', 'fas fa-fw fa-user-edit', 1),
 (16, 3, 'Data Pelamar Asisten', 'menu/asisten', 'fas fa-fw fa-database', 1),
 (20, 3, 'Post Pengumuman', 'menu/post', 'fas fa-fw fa-file-upload', 1);
+=======
+(8, 4, 'Pendaftaran Tugas Besar', 'mahasiswa', 'fas fa-fw fa-file', 1),
+(9, 4, 'Pendaftaran Asisten', 'mahasiswa/lamaran', 'fas fa-fw fa-file-upload', 1),
+(10, 5, 'Pembagian Kelompok', 'informasi/kelompok', 'fas fa-fw fa-book', 1),
+(11, 5, 'Pengumuman', 'informasi/pengumuman', 'fas fa-fw fa-bullhorn', 1),
+(12, 3, 'Buka Kelas', 'menu/class', 'fas fa-fw fa-users', 1),
+(13, 3, 'Upload Nilai', 'menu/upload', 'fas fa-fw fa-file-upload', 1),
+(14, 3, 'Pembagian Kelompok', 'menu/kelompok', 'fas fa-fw fa-user-edit', 1),
+(15, 3, 'Data Pelamar Asisten', 'menu/asisten', 'fas fa-fw fa-database', 1),
+(16, 3, 'Post Pengumuman', 'menu/post', 'fas fa-fw fa-file-upload', 1),
+(17, 4, 'Kartu Hasil Tugas Besar', 'mahasiswa/khs', 'fas fa-fw fa-file-alt', 1),
+(18, 4, 'Unduh Kartu Kelulusan', 'mahasiswa/hasil', 'fas fa-fw fa-file-pdf', 1);
+>>>>>>> master
 
 -- --------------------------------------------------------
 
@@ -237,31 +331,57 @@ ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
 -- Indeks untuk tabel `user_daftar`
+=======
+-- Indexes for table `user_asisten`
+--
+ALTER TABLE `user_asisten`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_daftar`
+>>>>>>> master
 --
 ALTER TABLE `user_daftar`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
 -- Indeks untuk tabel `user_matkul`
+=======
+-- Indexes for table `user_matkul`
+>>>>>>> master
 --
 ALTER TABLE `user_matkul`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
 -- Indeks untuk tabel `user_menu`
+=======
+-- Indexes for table `user_menu`
+>>>>>>> master
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
 -- Indeks untuk tabel `user_post`
+=======
+-- Indexes for table `user_post`
+>>>>>>> master
 --
 ALTER TABLE `user_post`
   ADD PRIMARY KEY (`id_post`);
 
 --
+<<<<<<< HEAD
 -- Indeks untuk tabel `user_role`
+=======
+-- Indexes for table `user_role`
+>>>>>>> master
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
@@ -293,6 +413,27 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+<<<<<<< HEAD
+=======
+
+--
+-- AUTO_INCREMENT for table `user_asisten`
+--
+ALTER TABLE `user_asisten`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `user_daftar`
+--
+ALTER TABLE `user_daftar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `user_matkul`
+--
+ALTER TABLE `user_matkul`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> master
 
 --
 -- AUTO_INCREMENT untuk tabel `user_daftar`
@@ -313,13 +454,21 @@ ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT untuk tabel `user_post`
+=======
+-- AUTO_INCREMENT for table `user_post`
+>>>>>>> master
 --
 ALTER TABLE `user_post`
   MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT untuk tabel `user_role`
+=======
+-- AUTO_INCREMENT for table `user_role`
+>>>>>>> master
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
@@ -328,7 +477,11 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+>>>>>>> master
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`
