@@ -17,8 +17,6 @@ class pdfControll extends CI_Controller {
         $pdf->Image('./assets/img/header.jpg',20,null,169,36,'JPG');
          // setting jenis font yang akan digunakan		
 		$pdf->SetFont('Times','B',14);
-		// $this->load->model('Site_model');
-		// $value=$this->Site_model->getdatapendaftarkp($id);
            // mencetak string 
         $pdf->Cell(169,4,'',0,2);
         $pdf->Cell(43,4,'',0,0);$pdf->Cell(85,5,'SURAT KETERANGAN KELULUSAN','B',0,'C');
