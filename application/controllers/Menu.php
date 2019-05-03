@@ -111,9 +111,9 @@ class Menu extends CI_Controller {
 
         $data['kodem']= $this->db->get('user_matkul')->result_array();
         
-        $this->form_validation->set_rules('kodemk','kodemk', 'required');
-        $this->form_validation->set_rules('namamk','namamk', 'required');
-        $this->form_validation->set_rules('sksmk','sksmk', 'required');
+        $this->form_validation->set_rules('kodemk','KodeMK', 'required');
+        $this->form_validation->set_rules('namamk','NamaMK', 'required');
+        $this->form_validation->set_rules('sksmk','SksMK', 'required');
 
         if ($this->form_validation->run()==false) {
             $this->load->view('templates/header',$data);

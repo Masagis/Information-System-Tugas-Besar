@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <select name="kode" id="kode" class="form-control">
                             <option value="">-Select-</option>
-                                <?php foreach ($kodem as $k ):?>
+                                <?php foreach ($mkkode as $k ):?>
                                 <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
                                 <?php endforeach ?>
                         </select>
@@ -28,7 +28,7 @@
 
             <!-- menampilkan data yang telah tubes di ambil -->
             <div class="box-headerooter">
-                <i class="fas fa-bookmark" aria-hidden="true"<h6 class="box-title text-left"> Daftar Tugas Besar</h6> </i>
+                <i class="fas fa-bookmark" aria-hidden="true"<h6 class="box-title text-left"> Daftar Tugas Besar yang diambil</h6> </i>
                 </div>
 
             <table class="table table-hover">
@@ -43,11 +43,11 @@
             </thead>
             <tbody>
             <?php $i = 1; ?>
-                <?php foreach ($mkkode as $mk ):?>
+                <?php foreach ($kodem as $km ):?>
                 <tr>
                 <th scope="row"><?= $i;?> </th>
-                <td id="kodemk"><?= $mk['kodemk'];?></td>
-                <td id="namamk"><?= $mk['namamk'];?></td>
+                <td id="kodemk"><?= $km['kodemk'];?></td>
+                <td id="namamk"><?= $km['namamk'];?></td>
                 <td><?= $mk['sksmk'];?></td>
                 <td>
                     <a href=" " class="badge badge-danger">Delete</a>    
