@@ -17,8 +17,8 @@ class pdfControll extends CI_Controller {
         $pdf->Image('./assets/img/header.jpg',20,null,169,36,'JPG');
          // setting jenis font yang akan digunakan		
 		$pdf->SetFont('Times','B',14);
-		// $this->load->model('Site_model');
-		// $value=$this->Site_model->getdatapendaftarkp($id);
+		$this->load->model('Menu_model');
+        $data=$this->Menu_model->getUnduh();
            // mencetak string 
         $pdf->Cell(169,4,'',0,2);
         $pdf->Cell(43,4,'',0,0);$pdf->Cell(85,5,'SURAT KETERANGAN KELULUSAN','B',0,'C');
@@ -29,8 +29,8 @@ class pdfControll extends CI_Controller {
         $pdf->Cell(169,7,'Yang bertanda tangan dibawah ini Ketua Program Studi Teknik Sipil Institut Teknologi Sumatera,',0,2,'L');
         $pdf->Cell(169,7,'menyatakan bahwa :',0,1,'L');
         $pdf->Cell(169,10,'',0,1);
-        $pdf->SetFont('Times','B',14);
-        $pdf->Cell(169,8,'NAMA MAHASISWA',0,2,'C');
+        $pdf->SetFont('Times','B',16);
+        $pdf->Cell(169,8,$data['name'],0,2,'C');
         $pdf->Cell(169,10,'',0,1);
         // Memberikan space
         $pdf->SetFont('Times','',12);
@@ -40,7 +40,7 @@ class pdfControll extends CI_Controller {
         $pdf->Cell(169,8,'LULUS/TIDAK LULUS',0,3,'C');
         // Memberikan space
         $pdf->SetFont('Times','',12);
-        $pdf->Cell(169,7,'Dalam mengikuti Tugas Besar,',0,2,'L');
+        $pdf->Cell(55,7,'Dalam mengikuti Tugas Besar,',0,0,'L'); $pdf->Cell(60,7,$data['mk2'],0,1);
         $pdf->Cell(149,7,'Demikian surat keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan',0,2,'L');
         $pdf->Cell(149,7,'sebagaimana mestinya.',0,2,'L');
         // Memberikan space
@@ -55,5 +55,5 @@ class pdfControll extends CI_Controller {
 
             $pdf->Output();
             $pdf->Stream(array("Attachment" => FALSE));
+        }
     }
-}
