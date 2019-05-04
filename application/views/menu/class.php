@@ -31,7 +31,7 @@
                 <td><?= $k['namamk'];?></td>
                 <td><?= $k['sksmk'];?></td>
                 <td>
-                    <a href=" " class="badge badge-success">Edit</a>
+                    <a href="<?= base_url(); ?>menu/ubahClass/<?= $k['id']; ?>" class="badge badge-success">Edit</a>
                     <a href="<?= base_url(); ?>admin/deleteClass/<?= $k['id']; ?>" class="badge badge-danger" onclick="return confirm('Are you sure?');">Delete</a>    
                     </td>
                 </tr>

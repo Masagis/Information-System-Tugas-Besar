@@ -29,7 +29,7 @@
                 <td><?= $p['title_post'];?></td>
                 <td><?= $p['isi_post'];?></td>
                 <td>
-                    <a href=" " class="badge badge-success">Edit</a>
+                    <a href="<?= base_url(); ?>menu/ubahPost/<?= $p['id_post']; ?> " class="badge badge-success">Edit</a>
                     <a href="<?= base_url(); ?>admin/deletePost/<?= $p['id_post']; ?>" class="badge badge-danger" onclick="return confirm('Are you sure?');">Delete</a>    
                     </td>
                 </tr>
@@ -60,7 +60,7 @@
             <form action="<?= base_url ('menu/post'); ?>" method="post"> 
                 <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="posttitle_post" name="title_post" placeholder="Judul Pengumuman">
+                            <input type="text" class="form-control" id="title_post" name="title_post" placeholder="Judul Pengumuman">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="isi_post" name="isi_post" placeholder="Link Pengumuman">

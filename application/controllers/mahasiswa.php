@@ -10,12 +10,16 @@ class mahasiswa extends CI_Controller {
         
         $data['title']='Pendaftaran Tugas Besar';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('daftar_model','kodemk');
-
-        $data['matkul']= $this->kodemk->getDaftar();
-        $data['kodem']= $this->db->get('user_daftar')->result_array();
 
         $data['mkkode']= $this->db->get('user_matkul')->result_array();
+        
+        $this->form_validation->set_rules('nim','Nim','required');
+        $this->form_validation->set_rules('kelas','Kelas','required');
+        $this->form_validation->set_rules('semester','Semester','required');
+        $this->form_validation->set_rules('tahun','Tahun','required');
+        $this->form_validation->set_rules('mk1','Mk1','required');
+        $this->form_validation->set_rules('mk2','Mk2','required');
+        $this->form_validation->set_rules('mk3','mk3','');
 
         if ($this->form_validation->run()==false) {
             $this->load->view('templates/header',$data);
@@ -25,10 +29,16 @@ class mahasiswa extends CI_Controller {
             $this->load->view('templates/footer');
         }else {
             $data=array(
-                'kodemk'=> $this->input->post('kodemk'),
-                'namamk'=> $this->input->post('namamk')
-            );
-            $this->db->insert('user_matkul',$data);
+                    'nim' => $this->input->post('nim'),
+                    'name' => $this->input->post('name'),
+                    'kelas' => $this->input->post('kelas'),
+                    'semester' => $this->input->post('semester'),
+                    'tahun' => $this->input->post('tahun'),
+                    'mk1' => $this->input->post('mk1'),
+                    'mk2' => $this->input->post('mk2'),
+                    'mk3' => $this->input->post('mk3'),
+                    );
+            $this->db->insert('user_daftar',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
             New data added! </div> ');
             redirect('mahasiswa');
@@ -90,5 +100,17 @@ class mahasiswa extends CI_Controller {
         $this->load->view('mahasiswa/hasil',$data);
         $this->load->view('templates/footer');
                 
+        }
+        public function khs(){
+            $data['title']='Kartu Hasil Tugas Besar';
+            $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    
+            $data['khs']= $this->db->get('user_daftar')->result_array();
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('mahasiswa/khs',$data);
+            $this->load->view('templates/footer');
         }
     }

@@ -27,7 +27,6 @@
                 <th scope="row"><?= $i;?> </th>
                 <td><?= $m['menu'];?></td>
                 <td>
-                    <a href=" " class="badge badge-success">Edit</a>
                     <a href=" " class="badge badge-danger">Delete</a>    
                     </td>
                 </tr>
