@@ -52,33 +52,35 @@ class Fungsi extends CI_Controller {
           )
         );
     
-        $excel->setActiveSheetIndex(0)->setCellValue('A1', "Pembagian anggota kelompok"); // Set kolom A1 dengan Judul excel
-        $excel->getActiveSheet()->mergeCells('A1:F1'); // Set Merge Cell pada kolom A1 sampai E1
+        $excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA TUBES MAHASISWA T.SIPIL"); // Set kolom A1 dengan Judul excel
+        $excel->getActiveSheet()->mergeCells('A1:G2'); // Set Merge Cell pada kolom A1 sampai E1
         $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); // Set bold kolom A1
         $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); // Set font size 15 untuk kolom A1
         $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); // Set text center untuk kolom A1
     
         // Buat header tabel nya pada baris ke 3
-        $excel->setActiveSheetIndex(0)->setCellValue('A3', "NO");
-        $excel->setActiveSheetIndex(0)->setCellValue('B3', "NIM"); 
-        $excel->setActiveSheetIndex(0)->setCellValue('C3', "NAMA");
-        $excel->setActiveSheetIndex(0)->setCellValue('D3', "KELAS");
-        $excel->setActiveSheetIndex(0)->setCellValue('E3', "MATA KULIAH");
-        $excel->setActiveSheetIndex(0)->setCellValue('F3', "KELOMPOK"); 
-    
+        $excel->setActiveSheetIndex(0)->setCellValue('A4', "NO");
+        $excel->setActiveSheetIndex(0)->setCellValue('B4', "NIM"); 
+        $excel->setActiveSheetIndex(0)->setCellValue('C4', "NAMA");
+        $excel->setActiveSheetIndex(0)->setCellValue('D4', "KELAS");
+        $excel->setActiveSheetIndex(0)->setCellValue('E4', "MATA KULIAH");
+        $excel->setActiveSheetIndex(0)->setCellValue('F4', "KELOMPOK");
+        $excel->setActiveSheetIndex(0)->setCellValue('G4', "TAHUN");
+        
         // Apply style header yang telah kita buat tadi ke masing-masing kolom header
-        $excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
-        $excel->getActiveSheet()->getStyle('B3')->applyFromArray($style_col);
-        $excel->getActiveSheet()->getStyle('C3')->applyFromArray($style_col);
-        $excel->getActiveSheet()->getStyle('D3')->applyFromArray($style_col);
-        $excel->getActiveSheet()->getStyle('E3')->applyFromArray($style_col);
-        $excel->getActiveSheet()->getStyle('F3')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('A4')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('B4')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('C4')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('D4')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('E4')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('F4')->applyFromArray($style_col);
+        $excel->getActiveSheet()->getStyle('G4')->applyFromArray($style_col);
 
         // Panggil function getanggota yang ada di model untuk mengambil database
         $kelompok = $this->Kelompok_model->getKelompok();
         $no = 1;
     
-        $numrow = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
+        $numrow = 5; // Set baris pertama untuk isi tabel adalah baris ke 4
         foreach($kelompok as $data){ // Lakukan looping pada variabel kelompok
           $excel->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $no);
           $excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->nim);
@@ -86,6 +88,7 @@ class Fungsi extends CI_Controller {
           $excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->kelas);
           $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->matkul);
           $excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->kelompok);
+          $excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->tahun);
           
           // Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
           $excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
@@ -94,7 +97,8 @@ class Fungsi extends CI_Controller {
           $excel->getActiveSheet()->getStyle('D'.$numrow)->applyFromArray($style_row);
           $excel->getActiveSheet()->getStyle('E'.$numrow)->applyFromArray($style_row);
           $excel->getActiveSheet()->getStyle('F'.$numrow)->applyFromArray($style_row);
-          
+          $excel->getActiveSheet()->getStyle('G'.$numrow)->applyFromArray($style_row);
+
           $numrow++; // Tambah 1 setiap kali looping
           $no++;
         }
@@ -106,6 +110,7 @@ class Fungsi extends CI_Controller {
         $excel->getActiveSheet()->getColumnDimension('D')->setWidth(10); 
         $excel->getActiveSheet()->getColumnDimension('E')->setWidth(40); 
         $excel->getActiveSheet()->getColumnDimension('F')->setWidth(15); 
+        $excel->getActiveSheet()->getColumnDimension('G')->setWidth(10); 
         
         // Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
         $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
