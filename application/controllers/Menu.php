@@ -178,7 +178,7 @@ class Menu extends CI_Controller {
     public function Kelompok(){
         $data['title']='Pembagian anggota Kelompok';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-        $data['kelompok']= $this->db->get('user_kelompok')->result_array(); 
+        $data['kelompok']= $this->db->get('user_daftar')->result_array(); 
 
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar',$data);

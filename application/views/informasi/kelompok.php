@@ -27,28 +27,33 @@
             <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                	<th>no </th>
+                    <th>no </th>
                     <th>nim</th>
                     <th>nama</th>
                     <th>kelas</th>
+                    <th>semester</th>
                     <th>matkul</th>
-                    <th>kelompok</th>
+                    <th>matkul2</th>
+                    <th>matkul3</th>
                     <th>tahun</th>
+           
                 </tr>
               </thead>
               <tbody>
                     <?php 
-                        $no = 1;
                         foreach($data_kelompok as $data){
                     ?>
                         <tr>
-                            <td style="text-align: center;"><?php echo $no++;?></td>
+                            <td><?php echo $data->id;?></td>
                             <td><?php echo $data->nim;?></td>
-                            <td><?php echo $data->nama;?></td>
-                            <td style="text-align: center;"><?php echo $data->kelas;?></td>
-                            <td><?php echo $data->matkul;?></td>
-                            <td><?php echo $data->kelompok;?></td>
-                            <td style="text-align: center;"><?php echo $data->tahun;?></td>
+                            <td><?php echo $data->name;?></td>
+                            <td><?php echo $data->kelas;?></td>
+                            <td><?php echo $data->semester;?></td>
+                            <td><?php echo $data->mk1;?></td>
+                            <td><?php echo $data->mk2;?></td>
+                            <td><?php echo $data->mk3;?></td>
+                            <td><?php echo $data->tahun;?></td>
+                            
                         </tr>
                     <?php }?>
 

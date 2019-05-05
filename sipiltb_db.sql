@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2019 pada 05.58
+-- Waktu pembuatan: 05 Bulan Mei 2019 pada 08.59
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -70,7 +70,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (8, 2, 5),
 (11, 2, 2),
 (13, 1, 2),
-(14, 1, 4);
+(16, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -104,32 +104,24 @@ INSERT INTO `user_asisten` (`id`, `nim`, `name`, `matkul`, `matkul1`, `matkul2`,
 
 CREATE TABLE `user_daftar` (
   `id` int(11) NOT NULL,
-  `kodemk` varchar(128) NOT NULL,
-  `namamk` varchar(128) NOT NULL,
-  `sksmk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_kelompok`
---
-
-CREATE TABLE `user_kelompok` (
   `nim` int(11) NOT NULL,
-  `nama` varchar(30) DEFAULT NULL,
-  `kelas` varchar(10) DEFAULT NULL,
-  `matkul` varchar(30) DEFAULT NULL,
-  `kelompok` varchar(15) DEFAULT NULL
+  `name` varchar(128) NOT NULL,
+  `kelas` varchar(128) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `tahun` int(11) NOT NULL,
+  `mk1` varchar(128) NOT NULL,
+  `mk2` varchar(128) NOT NULL,
+  `mk3` varchar(128) NOT NULL,
+  `kelompok` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_kelompok`
+-- Dumping data untuk tabel `user_daftar`
 --
 
-INSERT INTO `user_kelompok` (`nim`, `nama`, `kelas`, `matkul`, `kelompok`) VALUES
-(14116030, 'ilham raobi', 'RB', 'Proyek perangkat lunak', ''),
-(14116033, 'Arif wicaksono', 'RA', 'Proyek perangkat lunak', '');
+INSERT INTO `user_daftar` (`id`, `nim`, `name`, `kelas`, `semester`, `tahun`, `mk1`, `mk2`, `mk3`, `kelompok`) VALUES
+(1, 1234567, 'Rahmat Kurniawan', 'RA', 1, 2016, 'IF4567-Sistem Operasi', 'IF2412-Sistem Informmasi', 'IF3412-Data Mining', '1'),
+(2, 14115066, 'irham maulana', 'RB', 1, 2016, 'IF2412-Sistem informasi', 'IF3412-Data mining', '', '');
 
 -- --------------------------------------------------------
 
@@ -150,7 +142,7 @@ CREATE TABLE `user_matkul` (
 
 INSERT INTO `user_matkul` (`id`, `kodemk`, `namamk`, `sksmk`) VALUES
 (1, 'IF4567', 'Sistem Operasi', 3),
-(2, 'IF2412', 'Sistem Informmasi', 2),
+(2, 'IF2411', 'Sistem Informasi', 2),
 (3, 'IF3412', 'Data Mining', 3);
 
 -- --------------------------------------------------------
@@ -193,10 +185,8 @@ CREATE TABLE `user_post` (
 
 INSERT INTO `user_post` (`id_post`, `title_post`, `isi_post`) VALUES
 (1, 'Google ', 'https://google.com/'),
-(2, 'Facebook', 'https://facebook.com'),
-(3, 'Instagram', 'https://instagram.com/'),
-(4, 'Sistem akademik', 'http://siakad.itera.ac.id/'),
-(5, 'E-leraning', 'http://kuliah.itera.ac.id/');
+(2, 'Sistem akademik', 'http://siakad.itera.ac.id/'),
+(3, 'E-leraning', 'http://kuliah.itera.ac.id/');
 
 -- --------------------------------------------------------
 
@@ -298,12 +288,6 @@ ALTER TABLE `user_daftar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_kelompok`
---
-ALTER TABLE `user_kelompok`
-  ADD PRIMARY KEY (`nim`);
-
---
 -- Indeks untuk tabel `user_matkul`
 --
 ALTER TABLE `user_matkul`
@@ -353,7 +337,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_asisten`
@@ -365,7 +349,7 @@ ALTER TABLE `user_asisten`
 -- AUTO_INCREMENT untuk tabel `user_daftar`
 --
 ALTER TABLE `user_daftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_matkul`
@@ -383,7 +367,7 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT untuk tabel `user_post`
 --
 ALTER TABLE `user_post`
-  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`

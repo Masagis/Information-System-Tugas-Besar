@@ -31,25 +31,28 @@
                     <th>nim</th>
                     <th>nama</th>
                     <th>kelas</th>
+                    <th>semester</th>
                     <th>matkul</th>
-                    <th>kelompok</th>
+                    <th>matkul2</th>
+                    <th>matkul3</th>
                     <th>tahun</th>
-               <th style="width:125px;">Action
-                  </p></th>
+               <th style="width:125px;" >Action
+                  </th>
                 </tr>
               </thead>
               <tbody>
                     <?php 
-                        $no = 1;
                         foreach($data_kelompok as $data){
                     ?>
                         <tr>
-                            <td><?php echo $no++;?></td>
+                            <td><?php echo $data->id;?></td>
                             <td><?php echo $data->nim;?></td>
-                            <td><?php echo $data->nama;?></td>
+                            <td><?php echo $data->name;?></td>
                             <td><?php echo $data->kelas;?></td>
-                            <td><?php echo $data->matkul;?></td>
-                            <td><?php echo $data->kelompok;?></td>
+                            <td><?php echo $data->semester;?></td>
+                            <td><?php echo $data->mk1;?></td>
+                            <td><?php echo $data->mk2;?></td>
+                            <td><?php echo $data->mk3;?></td>
                             <td><?php echo $data->tahun;?></td>
                             <td style="text-align: center;">
                                 <button class="btn btn-sm btn-primary" onclick="edit_book(<?php echo $data->nim;?>)"><i class="fas fa-edit"></i></button>
