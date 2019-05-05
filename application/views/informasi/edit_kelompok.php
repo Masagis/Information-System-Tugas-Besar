@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2 style="text-align: center;margin-bottom: 30px">Pembagian Kelompok Tugas Besar Mahasiswa Teknik Sipil</h2>
-            <i class="fas fa-angle-double-left"></i> <a href="<?= base_url('user');?>"> Back to home </a>
+            <i class="fas fa-angle-double-left"></i> <a href="<?= base_url('Menu/kelompok');?>"> Back to kelompok </a>
             <br>
             <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
@@ -34,6 +34,8 @@
                     <th>matkul</th>
                     <th>kelompok</th>
                     <th>tahun</th>
+               <th style="width:125px;">Action
+                  </p></th>
                 </tr>
               </thead>
               <tbody>
@@ -42,13 +44,17 @@
                         foreach($data_kelompok as $data){
                     ?>
                         <tr>
-                            <td style="text-align: center;"><?php echo $no++;?></td>
+                            <td><?php echo $no++;?></td>
                             <td><?php echo $data->nim;?></td>
                             <td><?php echo $data->nama;?></td>
-                            <td style="text-align: center;"><?php echo $data->kelas;?></td>
+                            <td><?php echo $data->kelas;?></td>
                             <td><?php echo $data->matkul;?></td>
                             <td><?php echo $data->kelompok;?></td>
-                            <td style="text-align: center;"><?php echo $data->tahun;?></td>
+                            <td><?php echo $data->tahun;?></td>
+                            <td style="text-align: center;">
+                                <button class="btn btn-sm btn-primary" onclick="edit_book(<?php echo $data->nim;?>)"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger" onclick="delete_book(<?php echo $data->nim;?>)"><i class="far fa-trash-alt"></i></button>
+                            </td>
                         </tr>
                     <?php }?>
 

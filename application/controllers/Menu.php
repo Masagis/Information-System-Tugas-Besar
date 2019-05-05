@@ -186,4 +186,5 @@ class Menu extends CI_Controller {
             $this->load->view('menu/kelompok',$data);
             $this->load->view('templates/footer');
     }
+    
 }

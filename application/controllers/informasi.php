@@ -27,12 +27,22 @@ class informasi extends CI_Controller {
 
         $data = array(
                 'title'     => 'Data Mahasiswa',
-                'data_buku' => $this->Kelompok_model->getKelompok()
+                'data_kelompok' => $this->Kelompok_model->getKelompok()
             );
            
     
         $this->load->view('informasi/kelompok',$data);
-       // $this->load->view('templates/footer');
+    }
+
+    public function edit_kelompok(){
+        
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data = array(
+                'title'     => 'Data Mahasiswa',
+                'data_kelompok' => $this->Kelompok_model->getKelompok()
+            );
+        $this->load->view('informasi/edit_kelompok',$data);
     }
 
 }
