@@ -17,6 +17,10 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/');?>css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <!-- template plugin datatables-->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/');?>css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/');?>css/dataTables.bootstrap4.css">
 
 </head>
 
