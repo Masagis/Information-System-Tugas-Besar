@@ -4,6 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
+    <a href="<?= base_url('pdfControll/SuratKelulusan') ?>" class="btn btn-primary" role="button" aria-pressed="true">Unduh Pdf</a>
     </div>
     <!-- /.container-fluid -->
 

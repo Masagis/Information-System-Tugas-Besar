@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2019 pada 05.58
--- Versi server: 10.1.35-MariaDB
--- Versi PHP: 7.2.9
+-- Generation Time: May 04, 2019 at 10:29 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -104,10 +104,22 @@ INSERT INTO `user_asisten` (`id`, `nim`, `name`, `matkul`, `matkul1`, `matkul2`,
 
 CREATE TABLE `user_daftar` (
   `id` int(11) NOT NULL,
-  `kodemk` varchar(128) NOT NULL,
-  `namamk` varchar(128) NOT NULL,
-  `sksmk` int(11) NOT NULL
+  `nim` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `kelas` varchar(128) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `tahun` int(11) NOT NULL,
+  `mk1` varchar(128) NOT NULL,
+  `mk2` varchar(128) NOT NULL,
+  `mk3` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_daftar`
+--
+
+INSERT INTO `user_daftar` (`id`, `nim`, `name`, `kelas`, `semester`, `tahun`, `mk1`, `mk2`, `mk3`) VALUES
+(1, 1234567, 'Rahmat Kurniawan', 'RA', 1, 2016, 'IF4567-Sistem Operasi', 'IF2412-Sistem Informmasi', 'IF3412-Data Mining');
 
 -- --------------------------------------------------------
 
@@ -150,7 +162,7 @@ CREATE TABLE `user_matkul` (
 
 INSERT INTO `user_matkul` (`id`, `kodemk`, `namamk`, `sksmk`) VALUES
 (1, 'IF4567', 'Sistem Operasi', 3),
-(2, 'IF2412', 'Sistem Informmasi', 2),
+(2, 'IF2411', 'Sistem Informasi', 2),
 (3, 'IF3412', 'Data Mining', 3);
 
 -- --------------------------------------------------------
@@ -193,10 +205,8 @@ CREATE TABLE `user_post` (
 
 INSERT INTO `user_post` (`id_post`, `title_post`, `isi_post`) VALUES
 (1, 'Google ', 'https://google.com/'),
-(2, 'Facebook', 'https://facebook.com'),
-(3, 'Instagram', 'https://instagram.com/'),
-(4, 'Sistem akademik', 'http://siakad.itera.ac.id/'),
-(5, 'E-leraning', 'http://kuliah.itera.ac.id/');
+(2, 'Sistem akademik', 'http://siakad.itera.ac.id/'),
+(3, 'E-leraning', 'http://kuliah.itera.ac.id/');
 
 -- --------------------------------------------------------
 
@@ -365,7 +375,7 @@ ALTER TABLE `user_asisten`
 -- AUTO_INCREMENT untuk tabel `user_daftar`
 --
 ALTER TABLE `user_daftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_matkul`
@@ -383,7 +393,7 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT untuk tabel `user_post`
 --
 ALTER TABLE `user_post`
-  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_post` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`

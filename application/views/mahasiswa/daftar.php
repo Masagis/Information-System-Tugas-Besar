@@ -3,66 +3,94 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
         
     <div class="col">
         <div class="col-lg-8">
-        <?= form_error('menu','<div class="alert alert-danger" role ="alert">', '</div> ');?>
 
-        <?= $this->session->flashdata('message'); ?>
+    <?= $this->session->flashdata('message');?>
 
-        <!-- menampilkan data dari tabel user_daftar -->
-        <form action="<?= base_url ('mahasiswa'); ?>" method="post"> 
-                    <div class="form-group">
-                        <select name="kode" id="kode" class="form-control">
-                            <option value="">-Select-</option>
-                                <?php foreach ($kodem as $k ):?>
-                                <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
-                                <?php endforeach ?>
+        <?= form_open_multipart('mahasiswa');?>
+        <div class="form-group row">
+            <label for="nim" class="col-sm-3 col-form-label">NIM</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="nim" name="nim">
+                <?= form_error('nim','<small class="text-danger pl-3">','</small>'); ?>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Full Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="name" name="name" value="<?= $user ['name'];?>" readonly>
+                <?= form_error('name','<small class="text-danger pl-3">','</small>'); ?>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="kelas" class="col-sm-3 col-form-label">Kelas</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="kelas" name="kelas">
+                <?= form_error('kelas','<small class="text-danger pl-3">','</small>'); ?>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="semester" class="col-sm-3 col-form-label">Semester</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="semester" name="semester">
+                <?= form_error('semester','<small class="text-danger pl-3">','</small>'); ?>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="tahun" class="col-sm-3 col-form-label">Tahun Mendaftar</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="tahun" name="tahun">
+                <?= form_error('tahun','<small class="text-danger pl-3">','</small>'); ?>
+            </div>
+        </div>
+        <div class="form-group row">
+        <label for="mk1" class="col-sm-3 col-form-label">Tugas Besar 1</label>
+            <div class="col-sm-8">
+            <select name="mk1" id="mk1" class="form-control">
+                            <option value="">Select</option>
+                            <?php foreach ($mkkode as $k ):?>
+                            <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                            <?php endforeach ?>
                         </select>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Add Mata Kuliah</button>
-                                </div>
-                            </div>
-
-
-            <!-- menampilkan data yang telah tubes di ambil -->
-            <div class="box-headerooter">
-                <i class="fas fa-bookmark" aria-hidden="true"<h6 class="box-title text-left"> Daftar Tugas Besar</h6> </i>
-                </div>
-
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Kode MK</th>
-                <th scope="col">Mata Kuliah</th>
-                <th scope="col">SKS</th>
-                <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php $i = 1; ?>
-                <?php foreach ($mkkode as $mk ):?>
-                <tr>
-                <th scope="row"><?= $i;?> </th>
-                <td id="kodemk"><?= $mk['kodemk'];?></td>
-                <td id="namamk"><?= $mk['namamk'];?></td>
-                <td><?= $mk['sksmk'];?></td>
-                <td>
-                    <a href=" " class="badge badge-danger">Delete</a>    
-                    </td>
-                </tr>
-                <?php $i++; ?>
-                <?php endforeach ?>
-            </tbody>
-            </table>
+                <?= form_error('mk1','<small class="text-danger pl-3">','</small>'); ?>    
+            </div>
+        </div>
+        <div class="form-group row">
+        <label for="mk2" class="col-sm-3 col-form-label">Tugas Besar 2</label>
+            <div class="col-sm-8">
+            <select name="mk2" id="mk2" class="form-control">
+                            <option value="">Select</option>
+                            <?php foreach ($mkkode as $k ):?>
+                            <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                            <?php endforeach ?>
+                        </select>
+                <?= form_error('mk2','<small class="text-danger pl-3">','</small>'); ?>    
+            </div>
+        </div>
+        <div class="form-group row">
+        <label for="mk3" class="col-sm-3 col-form-label">Tugas Besar 3</label>
+            <div class="col-sm-8">
+            <select name="mk3" id="mk3" class="form-control">
+                            <option value="">Select</option>
+                            <?php foreach ($mkkode as $k ):?>
+                            <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                            <?php endforeach ?>
+                        </select>
+                <?= form_error('mk3','<small class="text-danger pl-3">','</small>'); ?>    
+            </div>
+        </div>
+            <div class="form-group row justify-content-end">
+                <div class="col-sm-4 text-center">
+                    <button type="submit" class="btn btn-primary">Daftar</button>
                     </div>
-                
                 </div>
-            
+        </div>
     </div>
-    <!-- /.container-fluid -->
+
+</div>
+<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
