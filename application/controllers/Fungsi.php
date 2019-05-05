@@ -8,7 +8,7 @@ class Fungsi extends CI_Controller {
         $this->load->model('Kelompok_model');   
     }
 
-      //fungsi download data
+    //fungsi download data
     public function export(){
         // Load plugin PHPExcel nya
         include APPPATH.'libraries/PHPExcel.php';
@@ -130,4 +130,6 @@ class Fungsi extends CI_Controller {
         $write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
         $write->save('php://output');
       }
+
+
 }
