@@ -18,8 +18,21 @@ class Menu_model extends CI_Model {
         return $this->db->get('user_daftar')->row_array();
     }
 
-    public function getKelompok(){
-        $query =  $this->db->get('user_daftar');
-        return $query->result();
+    public function getKelompok($kodemk){
+        $query =  "SELECT `user_daftar`.*,`user_matkul`.`namamk` 
+        FROM `user_daftar`, `user_matkul`
+        WHERE `user_daftar`.`kodemk` = `user_matkul`.`kodemk`
+        AND `user_daftar`.`kodemk` ='$kodemk'
+        ";
+        return $this->db->query($query)->result_array();
+    }
+
+    Public function tampilnilai($kodemk) {
+        $query = "SELECT `user_daftar`.`id`, `user_daftar`.`name`, `user_matkul`.`kodemk`, `user_daftar`.`tahun`, `user_daftar`.`nilai` 
+            FROM `user_daftar`, `user_matkul`
+            WHERE `user_daftar`.`id` = `user_matkul`.`id` 
+            AND `user_daftar`.`kodemk` = '$kodemk'
+        ";
+        return $this->db->query($query)->result_array();
     }
 }
