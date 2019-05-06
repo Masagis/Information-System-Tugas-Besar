@@ -70,12 +70,29 @@ class admin extends CI_Controller {
         Access Change! </div> ');
     }
 
-    public function deleteSubMenu($id){
+    public function deleteSubMenu($id)
+    {
         $this->db->delete('user_sub_menu', ['id' => $id]);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
-        Sub menu successfully deleted! </div>');
+        Data Dihapus! </div>');
         redirect('menu/submenu');
     }
+    public function deleteMenu($id)
+    {
+        $this->db->delete('user_menu', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Data Dihapus! </div>');
+        redirect('menu/index');
+    }
+    public function deleteRole($id)
+    {
+        $this->db->delete('user_role', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Data Dihapus! </div>');
+        redirect('admin/role');
+    }
+     
+
 
     public function deleteClass($id){
         $this->db->delete('user_daftar', ['id' => $id]);
@@ -90,4 +107,5 @@ class admin extends CI_Controller {
         Post was successfully deleted! </div>');
         redirect('menu/post');
     }
+
 }
