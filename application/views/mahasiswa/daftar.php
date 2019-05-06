@@ -39,39 +39,15 @@
             </div>
         </div>
         <div class="form-group row">
-        <label for="mk1" class="col-sm-3 col-form-label">Tugas Besar 1</label>
+        <label for="mk" class="col-sm-3 col-form-label">Tugas Besar </label>
             <div class="col-sm-8">
-            <select name="mk1" id="mk1" class="form-control">
+            <select name="kodemk" id="kodemk" class="form-control">
                             <option value="">Select</option>
                             <?php foreach ($mkkode as $k ):?>
                             <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];;?></option>
                             <?php endforeach ?>
                         </select>
-                <?= form_error('mk1','<small class="text-danger pl-3">','</small>'); ?>    
-            </div>
-        </div>
-        <div class="form-group row">
-        <label for="mk2" class="col-sm-3 col-form-label">Tugas Besar 2</label>
-            <div class="col-sm-8">
-            <select name="mk2" id="mk2" class="form-control">
-                            <option value="">Select</option>
-                            <?php foreach ($mkkode as $k ):?>
-                            <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];;?></option>
-                            <?php endforeach ?>
-                        </select>
-                <?= form_error('mk2','<small class="text-danger pl-3">','</small>'); ?>    
-            </div>
-        </div>
-        <div class="form-group row">
-        <label for="mk3" class="col-sm-3 col-form-label">Tugas Besar 3</label>
-            <div class="col-sm-8">
-            <select name="mk3" id="mk3" class="form-control">
-                            <option value="">Select</option>
-                            <?php foreach ($mkkode as $k ):?>
-                            <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];?></option>
-                            <?php endforeach ?>
-                        </select>
-                <?= form_error('mk3','<small class="text-danger pl-3">','</small>'); ?>    
+                <?= form_error('kodemk','<small class="text-danger pl-3">','</small>'); ?>    
             </div>
         </div>
             <div class="form-group row justify-content-end">
