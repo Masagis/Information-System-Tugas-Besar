@@ -27,14 +27,16 @@
             <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                	<th>no </th>
-                    <th>nim</th>
-                    <th>nama</th>
-                    <th>kelas</th>
-                    <th>matkul</th>
-                    <th>kelompok</th>
-                    <th>tahun</th>
-               <th style="width:125px;">Action
+                    <th>No </th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Semester</th>
+                    <th>Tahun</th>
+                    <th>Mata Kuliah 1</th>
+                    <th>Mata Kuliah 2</th>
+                    <th>Mata Kuliah 3</th>
+                    
+                <th style=width:125px;">Action
                   </p></th>
                 </tr>
               </thead>
@@ -46,14 +48,15 @@
                         <tr>
                             <td><?php echo $no++;?></td>
                             <td><?php echo $data->nim;?></td>
-                            <td><?php echo $data->nama;?></td>
-                            <td><?php echo $data->kelas;?></td>
-                            <td><?php echo $data->matkul;?></td>
-                            <td><?php echo $data->kelompok;?></td>
+                            <td><?php echo $data->name;?></td>
+                            <td><?php echo $data->semester;?></td>
                             <td><?php echo $data->tahun;?></td>
+                            <td><?php echo $data->mk1;?></td>
+                            <td><?php echo $data->mk2;?></td>
+                            <td><?php echo $data->mk3;?></td>
                             <td style="text-align: center;">
-                                <button class="btn btn-sm btn-primary" onclick="edit_book(<?php echo $data->nim;?>)"><i class="fas fa-edit"></i></button>
-                                <button class="btn btn-sm btn-danger" onclick="delete_book(<?php echo $data->nim;?>)"><i class="far fa-trash-alt"></i></button>
+                                <button class="btn btn-sm btn-primary" onclick="edit_book(<?php echo $data->id;?>)"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger" onclick="delete_book(<?php echo $data->id;?>)"><i class="far fa-trash-alt"></i></button>
                             </td>
                         </tr>
                     <?php }?>
