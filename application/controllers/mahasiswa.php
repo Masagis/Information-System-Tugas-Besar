@@ -14,7 +14,6 @@ class mahasiswa extends CI_Controller {
         $data['mkkode']= $this->db->get('user_matkul')->result_array();
         
         $this->form_validation->set_rules('nim','Nim','required');
-        $this->form_validation->set_rules('kelas','Kelas','required');
         $this->form_validation->set_rules('semester','Semester','required');
         $this->form_validation->set_rules('tahun','Tahun','required');
         $this->form_validation->set_rules('mk1','Mk1','required');
@@ -31,7 +30,6 @@ class mahasiswa extends CI_Controller {
             $data=array(
                     'nim' => $this->input->post('nim'),
                     'name' => $this->input->post('name'),
-                    'kelas' => $this->input->post('kelas'),
                     'semester' => $this->input->post('semester'),
                     'tahun' => $this->input->post('tahun'),
                     'mk1' => $this->input->post('mk1'),
@@ -105,7 +103,7 @@ class mahasiswa extends CI_Controller {
             $data['title']='Kartu Hasil Tugas Besar';
             $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     
-            $data['khs']= $this->db->get('user_daftar')->result_array();
+            $data['dataKhs']= $this->db->get('user_daftar')->result_array();
 
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar',$data);
