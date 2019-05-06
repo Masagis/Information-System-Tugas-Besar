@@ -243,8 +243,8 @@ class Menu extends CI_Controller {
     public function Kelompok(){
         $data['title']='Pembagian Kelompok';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-        $data['kelompok']= $this->db->get('user_daftar')->result_array(); 
-
+        
+        $data['kelas']=$this->db->get('user_matkul')->result_array();
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar',$data);
             $this->load->view('templates/topbar',$data);
@@ -252,4 +252,29 @@ class Menu extends CI_Controller {
             $this->load->view('templates/footer');
     }
     
-}
+    public function Upload(){
+        $data['title']='Upload Nilai';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['kelas']=$this->db->get('user_matkul')->result_array();
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/upload',$data);
+            $this->load->view('templates/footer');
+    }
+    public function Nilai($kodemk){
+        $data['title']='Isi Nilai';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        
+        $data['matkul']=$this->db->get_where('user_matkul',['kodemk' => $kodemk])->row_array();
+        $this->load->model('Menu_model','menu');
+        $data['nilai']= $this->menu->tampilnilai($kodemk);
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/nilai',$data);
+            $this->load->view('templates/footer');
+        }
+    }
