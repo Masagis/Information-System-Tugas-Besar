@@ -17,7 +17,7 @@
                         <select name="kode" id="kode" class="form-control">
                             <option value="">-Select-</option>
                                 <?php foreach ($mkkode as $k ):?>
-                                <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                                <option><?= $k['kodemk'],' - ', $k['namamk'];?></option>
                                 <?php endforeach ?>
                         </select>
                             <div class="modal-footer">
@@ -48,7 +48,7 @@
                 <th scope="row"><?= $i;?> </th>
                 <td id="kodemk"><?= $km['kodemk'];?></td>
                 <td id="namamk"><?= $km['namamk'];?></td>
-                <td><?= $mk['sksmk'];?></td>
+                <td><?= $km['sksmk'];?></td>
                 <td>
                     <a href=" " class="badge badge-danger">Delete</a>    
                     </td>
