@@ -45,43 +45,16 @@
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url('assets/');?>vendor/jquery-easing/jquery.easing.min.js"></script>
   
-  <!-- Plugin Datatables-->
-  <script type="text/javascript" src="<?= base_url('assets/');?>js/jquery.dataTables.js"></script>
-  <script type="text/javascript" src="<?= base_url('assets/');?>js/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/');?>js/sb-admin-2.min.js"></script>
   <script src="<?= base_url('assets/');?>js/scriptubah.js"></script>
 
-  <script type="text/javascript">
-	$(document).ready(function(){ asisten();	//call function show all product
-    $('#mydata').dataTable();               //function show all product
-		function asisten(){
-          $.ajax({
-              type  : 'ajax',
-              url   : '<?= site_url('mahasiswa/asisten')?>',
-              async : false,
-              dataType : 'json',
-              success : function(data){
-                  var html = '';
-                  var i;
-                  for(i=0; i<data.length; i++){
-                      html += '<tr>'+
-                            '<td>'+data[i].id+'</td>'+
-                            '<td>'+data[i].nim+'</td>'+
-                            '<td>'+data[i].name+'</td>'+
-                            '<td>'+data[i].matkul+'</td>'+
-                            '<td>'+data[i].matkul1+'</td>'+
-                            '<td>'+data[i].matkul2+'</td>'+
-                            '<td>'+data[i].filename+'</td>'+
-                            '</tr>';
-                  }
-                  $('#show_data').html(html);
-              }
-          });
-      }
-    });
-</script>
+  <script>
+      $(document).ready(function(){
+            $('#mydata').DataTable();
+      });
+      </script>
 
   <script>
       $('.custom-file-input').on('change', function () {

@@ -89,7 +89,6 @@ class Menu extends CI_Controller {
             $this->load->view('menu/ubahSubMenu',$data);
             $this->load->view('templates/footer');
         }else {
-            
             $data=[
                 'title' => $this->input->post('title'),
                 'menu_id' => $this->input->post('menu_id'),
@@ -97,13 +96,12 @@ class Menu extends CI_Controller {
                 'icon' => $this->input->post('icon'),
                 'is_active' => $this->input->post('is_active')
             ];
-        $this->db->where('id', $this->input->post('id'));
-        $this->db->update('user_sub_menu', $data);
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_sub_menu', $data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
-            Sub Menu Diubah ! </div> ');
+            Sub Menu has been updated! </div> ');
             redirect('menu/submenu');
         }
-        
     }
 
     public function class(){
@@ -114,6 +112,7 @@ class Menu extends CI_Controller {
         
         $this->form_validation->set_rules('kodemk','KodeMK', 'required');
         $this->form_validation->set_rules('namamk','NamaMK', 'required');
+        $this->form_validation->set_rules('kelas','Kelas', 'required');
         $this->form_validation->set_rules('sksmk','SksMK', 'required');
 
         if ($this->form_validation->run()==false) {
@@ -126,12 +125,47 @@ class Menu extends CI_Controller {
             $data=[
                 'kodemk' => $this->input->post('kodemk'),
                 'namamk' => $this->input->post('namamk'),
+                'kelas' => $this->input->post('kelas'),
                 'sksmk' => $this->input->post('sksmk'),
 
             ];
             $this->db->insert('user_matkul',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
             New class added! </div> ');
+            redirect('menu/class');
+        }
+    }
+
+    public function ubahclass($id){
+        $data['title']='Buka Kelas';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['kodem']= $this->db->get('user_matkul')->result_array();
+        $data['classAll']= $this->db->get_where('user_matkul', ['id' => $id])->row_array();
+        
+        $this->form_validation->set_rules('kodemk','KodeMK', 'required');
+        $this->form_validation->set_rules('namamk','NamaMK', 'required');
+        $this->form_validation->set_rules('kelas','Kelas', 'required');
+        $this->form_validation->set_rules('sksmk','SksMK', 'required');
+
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/ubahClass',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'kodemk' => $this->input->post('kodemk'),
+                'namamk' => $this->input->post('namamk'),
+                'kelas' => $this->input->post('kelas'),
+                'sksmk' => $this->input->post('sksmk'),
+
+            ];
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_matkul', $data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Class has been updated! </div> ');
             redirect('menu/class');
         }
     }
@@ -162,6 +196,37 @@ class Menu extends CI_Controller {
             redirect('menu/post');
         }
     }
+    
+    public function ubahPost($id_post) {
+
+        $data['title']='Pengumuman';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        
+
+        $data['post']= $this->db->get('user_post')->result_array();
+        $data['postAll']= $this->db->get_where('user_post', ['id_post' => $id_post])->row_array();
+
+        $this->form_validation->set_rules('title_post','title_post', 'required');
+        $this->form_validation->set_rules('isi_post','isi_post', 'required');
+        
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/ubahPost',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=[
+                'title_post' => $this->input->post('title_post'),
+                'isi_post' => $this->input->post('isi_post'),
+            ];
+            $this->db->where('id_post', $this->input->post('id_post'));
+            $this->db->update('user_post', $data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Post has been updated! </div> ');
+            redirect('menu/post');
+        }
+    }
 
     public function Asisten(){
         $data['title']='Data Pelamar Asisten';
@@ -175,6 +240,7 @@ class Menu extends CI_Controller {
             $this->load->view('menu/asisten',$data);
             $this->load->view('templates/footer');
     }
+
 
     public function Upload(){
         $data['title']='Upload Nilai';
