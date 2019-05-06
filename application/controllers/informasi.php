@@ -21,6 +21,7 @@ class informasi extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    //pembagian Kelompok view mahasiswa
     public function Kelompok(){
         $data['title']='Pembagian Kelompok';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
@@ -33,6 +34,7 @@ class informasi extends CI_Controller {
             $this->load->view('templates/footer');
     }
 
+    //view mahasiswa
     public function v_kelompok($kodemk){
         
         $data['title']='Daftar Kelompok ';
@@ -48,6 +50,7 @@ class informasi extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    //view mahasiswa
     public function edit_kelompok($kodemk){
         
         $data['title']='Data Mahasiswa';

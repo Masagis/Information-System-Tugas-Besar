@@ -240,11 +240,13 @@ class Menu extends CI_Controller {
             $this->load->view('templates/footer');
     }
 
+    //pembagian Kelompok view admin
     public function Kelompok(){
         $data['title']='Pembagian Kelompok';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
         
         $data['kelas']=$this->db->get('user_matkul')->result_array();
+
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar',$data);
             $this->load->view('templates/topbar',$data);
@@ -252,6 +254,7 @@ class Menu extends CI_Controller {
             $this->load->view('templates/footer');
     }
     
+    //view admin
     public function Upload(){
         $data['title']='Upload Nilai';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
@@ -263,6 +266,8 @@ class Menu extends CI_Controller {
             $this->load->view('menu/upload',$data);
             $this->load->view('templates/footer');
     }
+    
+    //view admin
     public function Nilai($kodemk){
         $data['title']='Isi Nilai';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
