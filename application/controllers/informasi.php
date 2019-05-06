@@ -29,7 +29,7 @@ class informasi extends CI_Controller {
                 'title'     => 'Data Mahasiswa',
                 'data_kelompok' => $this->Kelompok_model->getKelompok()
             );
-           
+        
     
         $this->load->view('informasi/kelompok',$data);
     }

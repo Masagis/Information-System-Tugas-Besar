@@ -6,29 +6,42 @@
 
     <div class="col">
         <div class="col-lg">
-        <?= $this->session->flashdata('message'); ?>
 
-        <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Semester</label>
-            <div class="col-sm-6">
-            <select name="semester" id="semester" class="form-control">
-                            <option value="">Select</option>
-                            <?php foreach ($khs as $k ):?>
-                            <option><?= $k['semester'];?></option>
-                            <?php endforeach ?>
-                        </select>
-                    </div>    
-            </div>
-        </div>
-            <div class="form-group row justify-content-end">
-                <div class="col-sm-9 text-center">
-                    <button type="submit" class="btn btn-primary">Tampil</button>
+        <?= $this->session->flashdata('message'); ?>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nim</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Tahun</th>
+                <th scope="col">Mata Kulaih 1</th>
+                <th scope="col">Mata kuliah 2</th>
+                <th scope="col">Mata kuliah 3</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php $i = 1; ?>
+                <?php foreach ($dataKhs as $dk ):?>
+                <tr>
+                <th scope="row"><?= $i;?> </th>
+                <td><?= $dk['nim'];?></td>
+                <td><?= $dk['semester'];?></td>
+                <td><?= $dk['tahun'];?></td>
+                <td><?= $dk['mk1'];?></td>
+                <td><?= $dk['mk2'];?></td>
+                <td><?= $dk['mk3'];?></td>
+                </tr>
+                <?php $i++; ?>
+                <?php endforeach ?>
+            </tbody>
+            </table>
                     </div>
+                
                 </div>
-            </div>
+
     </div>
     <!-- /.container-fluid -->
 <!--  -->
 </div>
 <!-- End of Main Content -->
-
