@@ -25,13 +25,6 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="kelas" class="col-sm-3 col-form-label">Kelas</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="kelas" name="kelas">
-                <?= form_error('kelas','<small class="text-danger pl-3">','</small>'); ?>
-            </div>
-        </div>
-        <div class="form-group row">
             <label for="semester" class="col-sm-3 col-form-label">Semester</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="semester" name="semester">
@@ -51,7 +44,7 @@
             <select name="mk1" id="mk1" class="form-control">
                             <option value="">Select</option>
                             <?php foreach ($mkkode as $k ):?>
-                            <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                            <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];;?></option>
                             <?php endforeach ?>
                         </select>
                 <?= form_error('mk1','<small class="text-danger pl-3">','</small>'); ?>    
@@ -63,7 +56,7 @@
             <select name="mk2" id="mk2" class="form-control">
                             <option value="">Select</option>
                             <?php foreach ($mkkode as $k ):?>
-                            <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                            <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];;?></option>
                             <?php endforeach ?>
                         </select>
                 <?= form_error('mk2','<small class="text-danger pl-3">','</small>'); ?>    
@@ -75,7 +68,7 @@
             <select name="mk3" id="mk3" class="form-control">
                             <option value="">Select</option>
                             <?php foreach ($mkkode as $k ):?>
-                            <option><?= $k['kodemk'],'-', $k['namamk'];?></option>
+                            <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];?></option>
                             <?php endforeach ?>
                         </select>
                 <?= form_error('mk3','<small class="text-danger pl-3">','</small>'); ?>    
