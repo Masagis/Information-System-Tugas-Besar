@@ -18,6 +18,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Kode MK</th>
                 <th scope="col">Mata Kuliah</th>
+                <th scope="col">Kelas</th>
                 <th scope="col">SKS</th>
                 <th scope="col">Action</th>
                 </tr>
@@ -29,6 +30,7 @@
                 <th scope="row"><?= $i;?> </th>
                 <td><?= $k['kodemk'];?></td>
                 <td><?= $k['namamk'];?></td>
+                <td><?= $k['kelas'];?></td>
                 <td><?= $k['sksmk'];?></td>
                 <td>
                     <a href="<?= base_url(); ?>menu/ubahClass/<?= $k['id']; ?>" class="badge badge-success">Edit</a>
@@ -66,6 +68,8 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="namamk" name="namamk" placeholder="Mata Kuliah">
+                        </div><div class="form-group">
+                            <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Kelas">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="sks" name="sksmk" placeholder="SKS">

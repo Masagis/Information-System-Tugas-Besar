@@ -18,6 +18,9 @@
                         <input type="text" class="form-control" id="namamk" name="namamk" value="<?= $classAll['namamk']; ?>">
                     </div>
                     <div class="form-group">
+                        <input type="text" class="form-control" id="kelas" name="kelas" value="<?= $classAll['kelas']; ?>">
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control" id="sksmk" name="sksmk" value="<?= $classAll['sksmk']; ?>">
                     </div>
                         <button type="submit" name="ubah" class="btn btn-primary float-right">Edit Data</button>
