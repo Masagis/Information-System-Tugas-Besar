@@ -40,6 +40,7 @@
                 <td><?= $sm['is_active'];?></td>
                 <td>
                     <a href="<?= base_url(); ?>menu/ubahsubmenu/<?= $sm['id']; ?>" class="badge badge-success">Edit</a>
+
                     <a href="<?= base_url(); ?>admin/deleteSubMenu/<?= $sm['id']; ?>" class="badge badge-danger float-right" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>
@@ -62,15 +63,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubmenuModalLabel">Add New Sub Menu</h5>
+                <h5 class="modal-title" id="newSubmenuModalLabel">Tambah Sub Menu Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url ('menu/submenu'); ?>" method="post"> 
+             
                 <div class="modal-body">
+                <form action="<?= base_url ('menu/submenu'); ?>" method="post">
+                <input type="hidden" name="id" id="id">    
                     <div class="form-group">
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Submenu Title">
+                        <input type="text" class="form-control" id="title" name="title" ">
                     </div>
                     <div class="form-group">
                         <select name="menu_id" id="menu_id" class="form-control">
@@ -81,10 +84,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="url" name="url" placeholder="Submenu Url">
+                        <input type="text" class="form-control" id="url" name="url" >
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="icon" name="icon" placeholder="Submenu Icon">
+                        <input type="text" class="form-control" id="icon" name="icon" ">
                     </div>
                     <div class="form-group">
                         <div class="form-check">

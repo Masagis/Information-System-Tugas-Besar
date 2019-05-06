@@ -8,7 +8,6 @@
         <div class="col-lg-8">
 
     <?= $this->session->flashdata('message');?>
-
         <?= form_open_multipart('mahasiswa');?>
         <div class="form-group row">
             <label for="nim" class="col-sm-3 col-form-label">NIM</label>

@@ -22,4 +22,15 @@ class Menu_model extends CI_Model {
         $query =  $this->db->get('user_daftar');
         return $query->result();
     }
+    public function tampilnilai($id) {
+        $query = "SELECT `user_nilai_mhs`.`id`, `user`.`name`, `user_nilai_mhs`.`tahun_ambil`, `user_nilai_mhs`.`nilai` 
+            FROM `user_nilai_mhs`, `user`, `user_matkul`
+            WHERE `user_nilai_mhs`.`id_mhs` = `user`.`id` 
+            AND `user_nilai_mhs`.`id_matkul` = `user_matkul`.`id`
+            AND `user_matkul`.`id` = $id
+
+        ";
+        return $this->db->query($query)->result_array();
+        
+    }
 }

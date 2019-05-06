@@ -27,7 +27,8 @@
                 <th scope="row"><?= $i;?> </th>
                 <td><?= $m['menu'];?></td>
                 <td>
-                    <a href=" " class="badge badge-danger">Delete</a>    
+                    <a href=" " class="badge badge-success"></a>
+                    <a href="<?= base_url(); ?>admin/deleteMenu/<?= $m['id']; ?>" class="badge badge-danger">Delete</a>    
                     </td>
                 </tr>
                 <?php $i++; ?>

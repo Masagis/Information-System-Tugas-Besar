@@ -14,8 +14,8 @@ class Menu extends CI_Controller {
 
         $data['menu']= $this->db->get('user_menu')->result_array();
         $data['id']= $this->db->get('user_menu')->result_array();
-        $data['subMenuA11']= $this->db->get('user_sub_menu')->result_array();
 
+        $data['subMenuA11']= $this->db->get('user_sub_menu')->result_array();
         $this->form_validation->set_rules('menu','Menu', 'required');
 
         if ($this->form_validation->run()==false) {
@@ -39,6 +39,7 @@ class Menu extends CI_Controller {
         $this->load->model('Menu_model','menu');
 
         $data['subMenu']= $this->menu->getSubmenu();
+
         $data['menu']= $this->db->get('user_menu')->result_array();
 
         $this->form_validation->set_rules('title','Title', 'required');
@@ -240,16 +241,31 @@ class Menu extends CI_Controller {
             $this->load->view('templates/footer');
     }
 
-    public function Kelompok(){
-        $data['title']='Pembagian Kelompok';
+
+    public function Upload(){
+        $data['title']='Upload Nilai';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-        $data['kelompok']= $this->db->get('user_daftar')->result_array(); 
+        $data['kelas']=$this->db->get('user_matkul')->result_array();
 
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar',$data);
             $this->load->view('templates/topbar',$data);
-            $this->load->view('menu/kelompok',$data);
+            $this->load->view('menu/upload',$data);
             $this->load->view('templates/footer');
+
     }
-    
+    public function Nilai($id){
+        $data['title']='Isi Nilai';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+        $data['matkul']=$this->db->get_where('user_matkul',['id' => $id])->row_array();
+        $this->load->model('Menu_model','menu');
+        $data['nilai']= $this->menu->tampilnilai($id);
+
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/nilai',$data);
+            $this->load->view('templates/footer');
+            $this->db->where('id', $this->input->post('id'));
+    }
 }

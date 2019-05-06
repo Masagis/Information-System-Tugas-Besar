@@ -1,3 +1,4 @@
+
 $(function () {
 
 	$('.tombolTambahData').on('click', function () {
@@ -18,6 +19,7 @@ $(function () {
 		$.ajax({
 
 			url: "<?= base_url('menu/getubahmenu'); ?>",
+
 			data: {
 				id: id
 			},
@@ -32,5 +34,4 @@ $(function () {
 		});
 
 	});
-
 });
