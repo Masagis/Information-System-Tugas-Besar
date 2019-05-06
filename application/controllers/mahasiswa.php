@@ -16,7 +16,7 @@ class mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('nim','Nim','required');
         $this->form_validation->set_rules('semester','Semester','required');
         $this->form_validation->set_rules('tahun','Tahun','required');
-        $this->form_validation->set_rules('mk','Tugas Besar','required');
+        $this->form_validation->set_rules('kodemk','Tugas Besar','required');
 
         if ($this->form_validation->run()==false) {
             $this->load->view('templates/header',$data);
