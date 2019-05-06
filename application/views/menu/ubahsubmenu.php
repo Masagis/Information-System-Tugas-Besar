@@ -7,6 +7,8 @@
                 <div class="card-header">
                     Update Sub Menu
                 </div>
+                    
+                
 
                 <div class="card-body">
                     <form action="" method="post">
@@ -36,12 +38,14 @@
                         </label>
                         </div>
                     </div>
-                        <button type="submit" name="ubah" class="btn btn-primary float-right">Edit Data</button>
+                        <button type="submit" name="ubah" class="btn btn-primary float-right">Ubah Data</button>
                     </form>
                 </div>
+                
             </div>
+
+
         </div>
     </div>
-    
-</div>
+
 </div>
