@@ -12,9 +12,7 @@
     <meta name="author" content="">
 
 	<!-- Custom fonts for this template-->
-        <link href="<?= base_url('assets/');?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <!-- Custom styles for this template-->
-    
+        <link href="<?= base_url('assets/');?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">    
 
 </head>
 <body>
@@ -23,17 +21,19 @@
         <div class="col-md-12">
             <h2 style="text-align: center;margin-bottom: 30px">Pembagian Kelompok Tugas Besar Mahasiswa Teknik Sipil</h2>
             <i class="fas fa-angle-double-left"></i> <a href="<?= base_url('user');?>"> Back to home </a>
+            
             <br>
             <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                	<th>no </th>
-                    <th>nim</th>
-                    <th>nama</th>
-                    <th>kelas</th>
-                    <th>matkul</th>
-                    <th>kelompok</th>
-                    <th>tahun</th>
+                <th>no </th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Semester</th>
+                    <th>Tahun</th>
+                    <th>Mata Kuliah 1</th>
+                    <th>Mata Kuliah 2</th>
+                    <th>Mata Kuliah 3</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,11 +44,13 @@
                         <tr>
                             <td style="text-align: center;"><?php echo $no++;?></td>
                             <td><?php echo $data->nim;?></td>
-                            <td><?php echo $data->nama;?></td>
-                            <td style="text-align: center;"><?php echo $data->kelas;?></td>
-                            <td><?php echo $data->matkul;?></td>
-                            <td><?php echo $data->kelompok;?></td>
-                            <td style="text-align: center;"><?php echo $data->tahun;?></td>
+                            <td><?php echo $data->name;?></td>
+                            <td><?php echo $data->semester;?></td>
+                            <td><?php echo $data->tahun;?></td>
+                            <td><?php echo $data->mk1;?></td>
+                            <td><?php echo $data->mk2;?></td>
+                            <td><?php echo $data->mk3;?></td>
+                            
                         </tr>
                     <?php }?>
 

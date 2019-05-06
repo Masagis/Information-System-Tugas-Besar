@@ -13,4 +13,13 @@ class Menu_model extends CI_Model {
     public function getUnduh(){
         return $this->db->get('user_daftar')->row_array();
     }
+
+    public function getdataKhs(){
+        return $this->db->get('user_daftar')->row_array();
+    }
+
+    public function getKelompok(){
+        $query =  $this->db->get('user_daftar');
+        return $query->result();
+    }
 }

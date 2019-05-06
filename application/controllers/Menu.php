@@ -111,6 +111,7 @@ class Menu extends CI_Controller {
         
         $this->form_validation->set_rules('kodemk','KodeMK', 'required');
         $this->form_validation->set_rules('namamk','NamaMK', 'required');
+        $this->form_validation->set_rules('kelas','Kelas', 'required');
         $this->form_validation->set_rules('sksmk','SksMK', 'required');
 
         if ($this->form_validation->run()==false) {
@@ -123,6 +124,7 @@ class Menu extends CI_Controller {
             $data=[
                 'kodemk' => $this->input->post('kodemk'),
                 'namamk' => $this->input->post('namamk'),
+                'kelas' => $this->input->post('kelas'),
                 'sksmk' => $this->input->post('sksmk'),
 
             ];
@@ -142,6 +144,7 @@ class Menu extends CI_Controller {
         
         $this->form_validation->set_rules('kodemk','KodeMK', 'required');
         $this->form_validation->set_rules('namamk','NamaMK', 'required');
+        $this->form_validation->set_rules('kelas','Kelas', 'required');
         $this->form_validation->set_rules('sksmk','SksMK', 'required');
 
         if ($this->form_validation->run()==false) {
@@ -154,6 +157,7 @@ class Menu extends CI_Controller {
             $data=[
                 'kodemk' => $this->input->post('kodemk'),
                 'namamk' => $this->input->post('namamk'),
+                'kelas' => $this->input->post('kelas'),
                 'sksmk' => $this->input->post('sksmk'),
 
             ];
@@ -237,9 +241,9 @@ class Menu extends CI_Controller {
     }
 
     public function Kelompok(){
-        $data['title']='Pembagian anggota Kelompok';
+        $data['title']='Pembagian Kelompok';
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-        $data['kelompok']= $this->db->get('user_kelompok')->result_array(); 
+        $data['kelompok']= $this->db->get('user_daftar')->result_array(); 
 
             $this->load->view('templates/header',$data);
             $this->load->view('templates/sidebar',$data);
