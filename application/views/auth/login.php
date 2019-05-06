@@ -52,11 +52,6 @@
                     </strong>
                       <ul>
                         <li>
-                          <a href="#"_blank">
-                            Cara Pendaftaran akun
-                          </a>
-                        </li>
-                        <li>
                           <a href="https://www.itera.ac.id/kalender-akademik/" target="_blank">
                             Kalender Akademik TA. 2018/2019
                           </a>
