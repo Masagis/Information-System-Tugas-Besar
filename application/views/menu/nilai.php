@@ -6,10 +6,10 @@
 
     <div class="col">
         <div class="col-lg-6">
+
         <?= form_error('menu','<div class="alert alert-danger" role ="alert">', '</div> ');?>
 
         <?= $this->session->flashdata('message'); ?>
-
 
         <table class="table table-hover">
             <thead>
@@ -27,10 +27,11 @@
                 <tr>
                 <th scope="row"><?= $i;?> </th>
                 <td><?= $n['name'];?></td>
-                <td><?= $n['tahun_ambil'];?></td>
+
+                <td><?= $n['tahun'];?></td>
                 <td><?= $n['nilai'];?></td>
                 <td> <a href=" " class="badge badge-success">Edit</a> </td>
-                
+
                 </tr>
                 <?php $i++; ?>
                 <?php endforeach ?>
@@ -44,4 +45,4 @@
     <!-- /.container-fluid -->
 
 </div>
-<!-- End of Main Content -->
+<!-- End of Main Content --> 

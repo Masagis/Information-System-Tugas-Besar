@@ -16,9 +16,7 @@ class mahasiswa extends CI_Controller {
         $this->form_validation->set_rules('nim','Nim','required');
         $this->form_validation->set_rules('semester','Semester','required');
         $this->form_validation->set_rules('tahun','Tahun','required');
-        $this->form_validation->set_rules('mk1','Mk1','required');
-        $this->form_validation->set_rules('mk2','Mk2','required');
-        $this->form_validation->set_rules('mk3','mk3','');
+        $this->form_validation->set_rules('mk','Tugas Besar','required');
 
         if ($this->form_validation->run()==false) {
             $this->load->view('templates/header',$data);
@@ -32,9 +30,7 @@ class mahasiswa extends CI_Controller {
                     'name' => $this->input->post('name'),
                     'semester' => $this->input->post('semester'),
                     'tahun' => $this->input->post('tahun'),
-                    'mk1' => $this->input->post('mk1'),
-                    'mk2' => $this->input->post('mk2'),
-                    'mk3' => $this->input->post('mk3'),
+                    'kodemk' => $this->input->post('kodemk'),
                     );
             $this->db->insert('user_daftar',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
