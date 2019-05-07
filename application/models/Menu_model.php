@@ -26,6 +26,13 @@ class Menu_model extends CI_Model {
         ";
         return $this->db->query($query)->result_array();
     }
+    public function getHasil(){
+        $query =  "SELECT `user_daftar`.*,`user_matkul`.`namamk` 
+        FROM `user_daftar`, `user_matkul`
+        WHERE `user_daftar`.`kodemk` = `user_matkul`.`kodemk`
+        ";
+        return $this->db->query($query)->result_array();
+    }
 
     Public function tampilnilai($kodemk) {
         $query = "SELECT `user_daftar`.`id`, `user_daftar`.`name`, `user_matkul`.`kodemk`, `user_daftar`.`tahun`, `user_daftar`.`nilai` 
@@ -34,16 +41,5 @@ class Menu_model extends CI_Model {
             AND `user_daftar`.`kodemk` = '$kodemk'
         ";
         return $this->db->query($query)->result_array();
-    }
-    public function tampilnilai($id) {
-        $query = "SELECT `user_nilai_mhs`.`id`, `user`.`name`, `user_nilai_mhs`.`tahun_ambil`, `user_nilai_mhs`.`nilai` 
-            FROM `user_nilai_mhs`, `user`, `user_matkul`
-            WHERE `user_nilai_mhs`.`id_mhs` = `user`.`id` 
-            AND `user_nilai_mhs`.`id_matkul` = `user_matkul`.`id`
-            AND `user_matkul`.`id` = $id
-
-        ";
-        return $this->db->query($query)->result_array();
-        
     }
 }
