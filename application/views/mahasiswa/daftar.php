@@ -41,9 +41,9 @@
         <label for="mk1" class="col-sm-3 col-form-label">Tugas Besar</label>
             <div class="col-sm-8">
             <select name="kodemk" id="kodemk" class="form-control">
-                            <option value="">Select</option>
+                            <option value=""> No Selected </option>
                             <?php foreach ($mkkode as $k ):?>
-                            <option><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];;?></option>
+                            <option value ="<?= $k['kodemk']; ?>"><?= $k['kodemk'],'-', $k['namamk'],' - ', $k['kelas'];;?></option>
                             <?php endforeach ?>
                         </select>
                 <?= form_error('kodemk','<small class="text-danger pl-3">','</small>'); ?>    
