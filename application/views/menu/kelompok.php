@@ -12,7 +12,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $k['namamk']; ?></h5>
                                 <p class="card-text"><?= $k['kodemk']; ?></p>
-                                <a href="<?= base_url(); ?>informasi/edit_kelompok/<?= $k['kodemk']; ?>" class="badge badge-primary">Edit</a>
+                                <a href="<?= base_url(); ?>informasi/edit_kelompok/<?= $k['kodemk']; ?>" class="badge badge-primary">Input Kelompok</a>
                             </div>
                         </div>
                     </div>
