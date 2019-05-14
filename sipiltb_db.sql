@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2019 at 06:17 AM
+-- Generation Time: May 07, 2019 at 01:53 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -121,7 +121,8 @@ INSERT INTO `user_daftar` (`id`, `nim`, `name`, `semester`, `tahun`, `kodemk`, `
 (2, 14115041, 'Rahmat Kurniawan', 8, 2019, 'IF4565', 0, ''),
 (3, 14115050, 'Rahmat Kurniawan', 4, 2018, 'IF3412', 0, ''),
 (4, 12121212, 'Rahmat Kurniawan', 7, 2019, 'IF4565', 0, ''),
-(5, 11221122, 'Rahmat Kurniawan', 3, 2019, 'SI4323', 0, '');
+(5, 11221122, 'Rahmat Kurniawan', 3, 2019, 'SI4323', 0, ''),
+(9, 14116084, 'Rahmat Kurniawan', 6, 2019, 'IF3412', 0, '');
 
 -- --------------------------------------------------------
 
@@ -351,7 +352,7 @@ ALTER TABLE `user_asisten`
 -- AUTO_INCREMENT for table `user_daftar`
 --
 ALTER TABLE `user_daftar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user_matkul`
@@ -375,7 +376,7 @@ ALTER TABLE `user_post`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
