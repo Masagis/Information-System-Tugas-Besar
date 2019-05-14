@@ -40,7 +40,7 @@ class pdfControll extends CI_Controller {
         $pdf->Cell(169,8,'LULUS/TIDAK LULUS',0,3,'C');
         // Memberikan space
         $pdf->SetFont('Times','',12);
-        $pdf->Cell(55,7,'Dalam mengikuti Tugas Besar,',0,0,'L'); //$pdf->Cell(60,7,$data['mk2'],0,1);
+        $pdf->Cell(55,7,'Dalam mengikuti Tugas Besar,',0,1,'L'); //$pdf->Cell(60,7,$data['namamk'],0,1);
         $pdf->Cell(149,7,'Demikian surat keterangan ini dibuat dan diberikan kepada yang bersangkutan untuk dipergunakan',0,2,'L');
         $pdf->Cell(149,7,'sebagaimana mestinya.',0,2,'L');
         // Memberikan space
@@ -54,6 +54,6 @@ class pdfControll extends CI_Controller {
         $pdf->Cell(104,7,'',0,0);$pdf->Cell(70,7,'NIP.19550221 198211 2001',0,0,'L');
 
             $pdf->Output();
-            $pdf->Stream(array("Attachment" => FALSE));
+            //$pdf->Stream(array("Attachment" => FALSE));
         }
     }

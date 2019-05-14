@@ -14,10 +14,10 @@
                 <th scope="col">#</th>
                 <th scope="col">Nim</th>
                 <th scope="col">Semester</th>
-                <th scope="col">Tahun</th>
-                <th scope="col">Mata Kulaih 1</th>
-                <th scope="col">Mata kuliah 2</th>
-                <th scope="col">Mata kuliah 3</th>
+                <th scope="col">Tahun Mengambil</th>
+                <th scope="col">Mata Kulaih </th>
+                <th scope="col">Nilai </th>
+
                 </tr>
             </thead>
             <tbody>
@@ -28,9 +28,8 @@
                 <td><?= $dk['nim'];?></td>
                 <td><?= $dk['semester'];?></td>
                 <td><?= $dk['tahun'];?></td>
-                <td><?= $dk['mk1'];?></td>
-                <td><?= $dk['mk2'];?></td>
-                <td><?= $dk['mk3'];?></td>
+                <td><?= $dk['namamk'];?></td>
+                <td><?= $dk['nilai'];?></td>
                 </tr>
                 <?php $i++; ?>
                 <?php endforeach ?>
