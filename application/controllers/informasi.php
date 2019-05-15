@@ -66,4 +66,40 @@ class informasi extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    //view untuk di admin
+    public function inputKelompok($id){
+        
+        $data['title']='Data Mahasiswa';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['input']= $this->db->get('user_daftar')->result_array();
+        $data['inputAll']= $this->db->get_where('user_daftar', ['id' => $id])->row_array();
+
+        $this->form_validation->set_rules('nim','Nim','required');
+        $this->form_validation->set_rules('semester','Semester','required');
+        $this->form_validation->set_rules('tahun','Tahun','required');
+        $this->form_validation->set_rules('kodemk','KodeMK','required');
+        $this->form_validation->set_rules('kelompok','Kelompok','required');
+        
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('informasi/inputKelompok',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=array(
+                'nim' => $this->input->post('nim'),
+                'name' => $this->input->post('name'),
+                'semester' => $this->input->post('semester'),
+                'tahun' => $this->input->post('tahun'),
+                'kelompok' => $this->input->post('kelompok'),
+                );
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_daftar', $data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Data has been updated! </div> ');
+            redirect('informasi/edit_kelompok');
+        }
+    }
 }
