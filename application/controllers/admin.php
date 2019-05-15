@@ -25,12 +25,20 @@ class admin extends CI_Controller {
         $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
 
         $data['role'] =$this->db->get('user_role')->result_array();
+        $this->form_validation->set_rules('role','Role', 'required');
 
-        $this->load->view('templates/header',$data);
-        $this->load->view('templates/sidebar',$data);
-        $this->load->view('templates/topbar',$data);
-        $this->load->view('admin/role',$data);
-        $this->load->view('templates/footer');
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('admin/role',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $this->db->insert('user_role',['role'=> $this->input->post('role')]);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            New role added </div> ');
+            redirect('admin/role');
+        }
     }
 
     public function roleAccess($role_id){
@@ -69,4 +77,41 @@ class admin extends CI_Controller {
         $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
         Access Change! </div> ');
     }
+
+    public function deleteSubMenu($id)
+    {
+        $this->db->delete('user_sub_menu', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Sub Menu was successfully deleted! </div>');
+        redirect('menu/submenu');
+    }
+    public function deleteMenu($id)
+    {
+        $this->db->delete('user_menu', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Menu was successfully deleted! </div>');
+        redirect('menu/index');
+    }
+    public function deleteRole($id)
+    {
+        $this->db->delete('user_role', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Role was successfully deleted! </div>');
+        redirect('admin/role');
+    }
+
+    public function deleteClass($id){
+        $this->db->delete('user_daftar', ['id' => $id]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        The class was successfully deleted! </div>');
+        redirect('menu/class');
+    }
+
+    public function deletePost($id_post){
+        $this->db->delete('user_post', ['id_post' => $id_post]);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role ="alert">
+        Post was successfully deleted! </div>');
+        redirect('menu/post');
+    }
+
 }

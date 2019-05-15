@@ -3,6 +3,9 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+        
+    <div class="col">
+        <div class="col-lg-8">
 
 
     <form action="" method="get" novalidate="novalidate">
@@ -36,7 +39,9 @@
 		</form>
 
     </div>
-    <!-- /.container-fluid -->
+
+</div>
+<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
