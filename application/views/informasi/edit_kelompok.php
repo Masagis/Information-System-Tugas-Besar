@@ -3,6 +3,9 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Mata Kuliah <?= $v_matkul['namamk']; ?></h1>
+    <?= form_error('informasi','<div class="alert alert-danger" role ="alert">', '</div> ');?>
+
+        <?= $this->session->flashdata('message'); ?>
 
     <div class="col">
         <div class="col-lg-8">
@@ -28,7 +31,7 @@
                 <td><?= $n['semester'];?></td>
                 <td><?= $n['tahun'];?></td>
                 <td><?= $n['kelompok'];?></td>
-                <td> <a href=" " class="badge badge-success">Edit</a> </td>
+                <td> <a href="<?= base_url(); ?>informasi/inputKelompok/<?= $n['id']; ?>" class="badge badge-success">Input</a> </td>
                 </tr>
                 <?php $i++; ?>
                 <?php endforeach ?>
