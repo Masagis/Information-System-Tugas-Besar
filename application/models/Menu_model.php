@@ -10,8 +10,20 @@ class Menu_model extends CI_Model {
         return $this->db->query($query)->result_array();
     }
     
-    public function getUnduh(){
-        return $this->db->get('user_daftar')->row_array();
+    public function getUnduh($kodemk){
+        $query =  "SELECT `user_daftar`.* 
+        FROM `user_daftar`
+        WHERE `kodemk` ='$kodemk'
+        ";
+        return $this->db->query($query)->row_array();
+    }
+
+    public function getMatkul($kodemk){
+        $query =  "SELECT `user_matkul`.* 
+        FROM `user_matkul`
+        WHERE `kodemk` ='$kodemk'
+        ";
+        return $this->db->query($query)->row_array();
     }
 
     public function getdataKhs(){
