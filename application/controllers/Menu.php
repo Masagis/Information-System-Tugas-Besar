@@ -127,7 +127,6 @@ class Menu extends CI_Controller {
                 'namamk' => $this->input->post('namamk'),
                 'kelas' => $this->input->post('kelas'),
                 'sksmk' => $this->input->post('sksmk'),
-
             ];
             $this->db->insert('user_matkul',$data);
             $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">

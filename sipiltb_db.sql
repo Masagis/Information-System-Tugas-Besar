@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2019 at 01:53 PM
+-- Generation Time: May 15, 2019 at 03:06 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -117,12 +117,10 @@ CREATE TABLE `user_daftar` (
 --
 
 INSERT INTO `user_daftar` (`id`, `nim`, `name`, `semester`, `tahun`, `kodemk`, `nilai`, `kelompok`) VALUES
-(1, 12567834, 'Rahmat Kurniawan', 2, 2019, 'IF2411', 0, ''),
-(2, 14115041, 'Rahmat Kurniawan', 8, 2019, 'IF4565', 0, ''),
-(3, 14115050, 'Rahmat Kurniawan', 4, 2018, 'IF3412', 0, ''),
-(4, 12121212, 'Rahmat Kurniawan', 7, 2019, 'IF4565', 0, ''),
-(5, 11221122, 'Rahmat Kurniawan', 3, 2019, 'SI4323', 0, ''),
-(9, 14116084, 'Rahmat Kurniawan', 6, 2019, 'IF3412', 0, '');
+(1, 12567834, 'Rahmat Kurniawan', 2, 2019, 'IF2411', 35, '5'),
+(2, 14115041, 'Rahmat Kurniawan', 8, 2019, 'IF4565', 70, '3'),
+(3, 14115050, 'Rahmat Kurniawan', 4, 2018, 'IF3412', 90, ''),
+(4, 11221122, 'Rahmat Kurniawan', 3, 2019, 'SI4323', 65, '');
 
 -- --------------------------------------------------------
 
@@ -143,7 +141,7 @@ CREATE TABLE `user_matkul` (
 --
 
 INSERT INTO `user_matkul` (`id`, `kodemk`, `namamk`, `kelas`, `sksmk`) VALUES
-(1, 'IF4565', 'Sistem Operasi', 'RA', 3),
+(1, 'IF4565', 'Sistem Operasi', 'RD', 3),
 (2, 'IF2411', 'Sistem Informasi', 'RC', 2),
 (3, 'IF3412', 'Data Mining', 'RB', 3),
 (4, 'SI4323', 'Struktur Tanah', 'RB', 3);
@@ -187,7 +185,7 @@ CREATE TABLE `user_post` (
 --
 
 INSERT INTO `user_post` (`id_post`, `title_post`, `isi_post`) VALUES
-(1, 'Google dd', 'https://google.com/'),
+(1, 'Google', 'https://google.com/'),
 (2, 'Sistem akademik', 'http://siakad.itera.ac.id/'),
 (3, 'E-leraning', 'http://kuliah.itera.ac.id/');
 
@@ -334,7 +332,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -376,7 +374,7 @@ ALTER TABLE `user_post`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
@@ -388,7 +386,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
