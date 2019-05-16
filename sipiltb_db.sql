@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2019 at 03:06 PM
+-- Generation Time: May 16, 2019 at 01:54 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -45,7 +45,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_create`) VALUES
 (1, 'Agis Tri wahyuji', 'karmeo08@gmail.com', '4.jpg', '$2y$10$zeyDkPWqOe4KsSYLGlacWu0dH1ewxouOhUUy2m.gDAM5fqSYWViXi', 1, 1, 1552385297),
-(2, 'Rahmat Kurniawan', 'wahyujiat@gmail.com', 'default.jpg', '$2y$10$GFncW32QQR0tDM9bIUkxU.V3Zxk7lqx8I3mKD//OaFPuCMa2HbsFy', 2, 1, 1552552313);
+(2, 'Rahmat Kurniawan', 'wahyujiat@gmail.com', 'default.jpg', '$2y$10$atBKhlUZHdQy0IG3kOYvx.1r90xTo/FQVz.3s3S98HCrGJhLgeoMm', 2, 1, 1552552313);
 
 -- --------------------------------------------------------
 
@@ -117,10 +117,10 @@ CREATE TABLE `user_daftar` (
 --
 
 INSERT INTO `user_daftar` (`id`, `nim`, `name`, `semester`, `tahun`, `kodemk`, `nilai`, `kelompok`) VALUES
-(1, 12567834, 'Rahmat Kurniawan', 2, 2019, 'IF2411', 35, '5'),
-(2, 14115041, 'Rahmat Kurniawan', 8, 2019, 'IF4565', 70, '3'),
-(3, 14115050, 'Rahmat Kurniawan', 4, 2018, 'IF3412', 90, ''),
-(4, 11221122, 'Rahmat Kurniawan', 3, 2019, 'SI4323', 65, '');
+(1, 14115041, 'Rahmat Kurniawan', 8, 2019, 'IF4565', 45, '1'),
+(2, 12567834, 'Rahmat Kurniawan', 2, 2019, 'IF2411', 35, '5'),
+(3, 14115050, 'Rahmat Kurniawan', 4, 2018, 'IF3412', 80, '4'),
+(4, 11221122, 'Rahmat Kurniawan', 3, 2019, 'SI4323', 100, '');
 
 -- --------------------------------------------------------
 
@@ -386,7 +386,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

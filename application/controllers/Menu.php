@@ -281,4 +281,36 @@ class Menu extends CI_Controller {
             $this->load->view('menu/nilai',$data);
             $this->load->view('templates/footer');
         }
+
+        //view untuk di admin
+    public function inputNilai($id){
+        
+        $data['title']='Data Mahasiswa';
+        $data['user']=$this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+
+        $data['inputAll']= $this->db->get_where('user_daftar', ['id' => $id])->row_array();
+
+        $this->form_validation->set_rules('name','Name','required');
+        $this->form_validation->set_rules('tahun','Tahun','required');
+        $this->form_validation->set_rules('nilai','Nilai','required');
+        
+        if ($this->form_validation->run()==false) {
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/inputNilai',$data);
+            $this->load->view('templates/footer');
+        }else {
+            $data=array(
+                'name' => $this->input->post('name'),
+                'tahun' => $this->input->post('tahun'),
+                'nilai' => $this->input->post('nilai'),
+                );
+            $this->db->where('id', $this->input->post('id'));
+            $this->db->update('user_daftar', $data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role ="alert">
+            Input Nilai successfully! </div> ');
+            redirect('menu/upload');
+        }
+    }
     }

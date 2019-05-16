@@ -11,19 +11,13 @@
                     <form action="" method="post">
                     <input type="hidden" name="id" value="<?= $inputAll['id']; ?>">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nim" name="nim" value="<?= $inputAll['nim']; ?>" readonly>
-                    </div>
-                    <div class="form-group">
                         <input type="text" class="form-control" id="name" name="name" value="<?= $inputAll['name']; ?>" readonly>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="semester" name="semester" value="<?= $inputAll['semester']; ?>" readonly>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="tahun" name="tahun" value="<?= $inputAll['tahun']; ?>" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="kelompok" name="kelompok" value="<?= $inputAll['kelompok']; ?>">
+                        <input type="text" class="form-control" id="nilai" name="nilai" value="<?= $inputAll['nilai']; ?>">
                     </div>
                         <button type="submit" name="ubah" class="btn btn-primary float-right">Input Kelompok</button>
                     </form>
