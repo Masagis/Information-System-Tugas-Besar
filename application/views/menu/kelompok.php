@@ -4,6 +4,7 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?> Tugas Besar</h1>
             <h3 class="h5 mb-4 text-gray-800">Daftar Tugas Besar : </h3>
+            <?= $this->session->flashdata('message'); ?>
             <div class="card-columns">
                 <?php foreach ($kelas as $k ):?>
                 <div class="card mb-3" style="max-width: 500px;">

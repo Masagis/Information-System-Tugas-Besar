@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
-                    <input type="hidden" name="id" value="<?= $inputAll['kodemk']; ?>">
+                    <input type="hidden" name="id" value="<?= $inputAll['id']; ?>">
                     <div class="form-group">
                         <input type="text" class="form-control" id="nim" name="nim" value="<?= $inputAll['nim']; ?>" readonly>
                     </div>

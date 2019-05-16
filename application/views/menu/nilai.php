@@ -27,10 +27,9 @@
                 <tr>
                 <th scope="row"><?= $i;?> </th>
                 <td><?= $n['name'];?></td>
-
                 <td><?= $n['tahun'];?></td>
                 <td><?= $n['nilai'];?></td>
-                <td> <a href=" " class="badge badge-success">Edit</a> </td>
+                <td> <a href="<?= base_url(); ?>menu/inputNilai/<?= $n['id']; ?>" class="badge badge-success">Edit</a> </td>
 
                 </tr>
                 <?php $i++; ?>
